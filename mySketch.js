@@ -41,6 +41,9 @@ function draw() {
   // draw player
   draw_person(width/2, height / 2+190, main_player);
 
+  // Display current age in the top-right corner
+  displayCurrentAge(30);
+
    // Update ray length and direction
   rayLength += rayLengthChange;
   if (rayLength > maxRayLength || rayLength < minRayLength) {
@@ -86,4 +89,15 @@ function draw_person(x, y, person) {
   // Draw the legs
   line(x, y, x - legLength, y + legLength);
   line(x, y, x + legLength, y + legLength);
+}
+
+
+
+function displayCurrentAge(age) {
+  // Display the current age as text in the top-right corner
+  fill(0);
+  textSize(50);
+  textAlign(RIGHT, TOP);
+  text(`Age : `, width - 90, 50);
+  text(`${age}`, width - 130, 120);
 }

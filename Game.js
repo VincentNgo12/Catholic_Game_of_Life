@@ -87,9 +87,45 @@ class Game{
   next_clicked(){
     document.getElementById("outcome_modal").style.display = "none";
     document.getElementById("outcome_effects").innerHTML = "";
-    setTimeout(() => {}, 5000);
+    this.progress_stage()
+      .then(() => this.play_current_stage());
+  }
+
+
+  async progress_stage(){
     this.stage++;
-    this.play_current_stage();
+
+
+    let fadeIn = 0;
+    let textFadeIn = 0;
+    let fadeOut = 255;
+    noLoop();
+
+    while(fadeIn<255){
+      // Fade to black
+      fill(0, 0, 0, fadeIn);
+      rect(0, 0, width, height);
+      fadeIn += 5;
+      await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
+    }while(textFadeIn<255){
+      fill(0);
+      rect(0, 0, width, height);
+      // Display the next age in the middle
+      fill(255,255,255,textFadeIn);
+      stroke(255,255,255,textFadeIn);
+      textSize(80);
+      text(this.stage, width / 2, height / 2);
+      textFadeIn += 5;
+      await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
+    }while(fadeOut>0){
+      draw();
+      fill(0,0,0,fadeOut);
+      rect(0, 0, width, height);
+      fadeOut -= 5;
+      await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
+    }
+
+    loop();
   }
 
 
