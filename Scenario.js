@@ -39,9 +39,6 @@ class WeightedOutcome{
     this.effects = effects;
     // Define default probability factors (equal distribution)
     this.defaultProbabilityFactors = {
-      happiness: 1.0,
-      health: 1.0,
-      wealth: 1.0,
     };
 
     // Use custom probability factors if provided, or use the defaults
@@ -78,5 +75,19 @@ class Outcome{
     this.name = name;
     this.description = description;
     this.effects = effects;
+  }
+}
+
+
+class RandomChoice{
+  constructor(name, outcomes) {
+    this.name = name;
+    this.outcomes = outcomes;
+  }
+
+
+  // Method to select an outcome randomly
+  selectOutcome(){
+    return random(this.outcomes);
   }
 }

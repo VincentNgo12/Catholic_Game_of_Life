@@ -5,15 +5,16 @@ let numRays = 12;
 let minRayLength = 20;
 let maxRayLength = 40;
 let rayLength = minRayLength;
-let rayLengthChange = 0.2; // Change in ray length per frame
+let rayLengthChange = 0.4; // Change in ray length per frame
 let main_player;
+let game;
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('canvas-container');
   background(255);
   main_player = new Person("Victor");
-  let game = new Game(main_player);
+  game = new Game(main_player);
   game.play();
 
   sunX = width / 2;
@@ -22,9 +23,13 @@ function setup() {
 }
 
 function draw() {
+  // Age ranges from 0 to 80, mapping it to time from 0 to 24 hours
+  let day_time = map(game.stage, 1, 80, 0, 24);
   // Sky background
   background(247, 178, 209);
 
+  // Calculate the position of the sun and moon
+  sunY = map(day_time, 0, 12, height/2-10, -100);
   stroke(0);
   strokeWeight(3);
   // Draw the sun
@@ -42,7 +47,7 @@ function draw() {
   draw_person(width/2, height / 2+190, main_player);
 
   // Display current age in the top-right corner
-  displayCurrentAge(30);
+  displayCurrentAge(game.stage);
 
    // Update ray length and direction
   rayLength += rayLengthChange;
@@ -66,12 +71,23 @@ function drawSunRays(x, y, numRays, length, radius) {
 function draw_person(x, y, person) {
   let race = (person.race=="ginger") ? "orange" : person.race;
   let size = constrain(person.traits.strength/50, 2, 20);
-  let age = 30;
+  let age = 50;
+  let headSize = 80;
+  let bodyLength = 180;
+  let armLength = 90;
+  let legLength = 110;
   // Calculate stickman proportions based on age
-  let headSize = age * 2;
-  let bodyLength = age * 5;
-  let armLength = age * 2.5;
-  let legLength = age * 3;
+  if(age <= 7){
+    headSize = age*5.5;
+    bodyLength = age*14.2;
+    armLength = age*6.5;
+    legLength = age*8;
+  }else if(age <=25){
+    headSize = 80
+    bodyLength = 180
+    armLength = 90
+    legLength = 110
+  }
 
   // Draw the head
   fill(race);

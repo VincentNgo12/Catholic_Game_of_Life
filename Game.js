@@ -9,18 +9,30 @@ class Game{
 
 
   play(){
+    this.play_current_stage();
+  }
+
+
+  play_current_stage(){
     if(!this.game_ended()){
-      this.current_scenario = random(scenarios[`stage_${this.stage}`]);
+      this.current_scenario = this.pick_scenario();
       this.current_choices = this.current_scenario.choices;
       this.show_scenario();
     }
   }
 
 
-  play_current_stage(){
-    this.current_scenario = random(scenarios[`stage_${this.stage}`]);
-    this.current_choices = this.current_scenario.choices;
-    this.show_scenario();
+  game_logic(){
+    if(this.stage === 18){
+
+    }
+  }
+
+
+  pick_scenario(){
+    if(this.stage <= 18){
+      return random(scenarios[`stage_${this.stage}`]);
+    }
   }
 
 
@@ -92,10 +104,8 @@ class Game{
   }
 
 
+  // Method for stage transition
   async progress_stage(){
-    this.stage++;
-
-
     let fadeIn = 0;
     let textFadeIn = 0;
     let fadeOut = 255;
@@ -107,7 +117,9 @@ class Game{
       rect(0, 0, width, height);
       fadeIn += 5;
       await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
-    }while(textFadeIn<255){
+    }
+    this.stage++;
+    while(textFadeIn<255){
       fill(0);
       rect(0, 0, width, height);
       // Display the next age in the middle
@@ -116,13 +128,13 @@ class Game{
       textSize(80);
       text(this.stage, width / 2, height / 2);
       textFadeIn += 5;
-      await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
+      await new Promise(resolve => setTimeout(resolve, 1000 / frameRate()));
     }while(fadeOut>0){
       draw();
       fill(0,0,0,fadeOut);
       rect(0, 0, width, height);
       fadeOut -= 5;
-      await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
+      await new Promise(resolve => setTimeout(resolve, 3000 / frameRate()));
     }
 
     loop();
