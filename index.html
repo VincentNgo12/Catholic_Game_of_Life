@@ -83,20 +83,30 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="playerStatsModalLabel">Current Stats</h5>
-        <button type="button" class="close" aria-label="Close" onClick="() => closeStatsModal()">
+				<div class="col">
+					<h5 class="modal-title" id="playerStatsModalLabel"><strong id="player_name"></strong> Stats</h5>
+					<h4><strong id="career"></strong></h4>
+				</div>
+        
+        <button type="button" class="close" aria-label="Close" id="close_button1">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <!-- Player attribute values -->
-        <p><strong>Health:</strong> 100</p>
-        <p><strong>Happiness:</strong> 80</p>
-        <p><strong>Strength:</strong> 70</p>
-        <p><strong>Agility:</strong> 60</p>
+        <p><strong>Health:</strong> <span id="health"></span></p>
+        <p><strong>Strength:</strong> <span id="strength"></span></p>
+        <p><strong>Happiness:</strong> <span id="happiness"></span></p>
+        <p><strong>Holiness:</strong> <span id="holiness"></span></p>
+				<p><strong>Wealth:</strong> <span id="wealth"></span></p>
+				<p><strong>Education:</strong> <span id="education"></span></p>
+				<p><strong>Crime:</strong> <span id="crime"></span></p>
+				<p><strong>Income:</strong> <span id="income"></span></p>
+				<p><strong>Annual Cost:</strong> <span id="annual_cost"></span></p>
+				<p><strong>Job Satisfaction:</strong> <span id="satisfaction"></span></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary">Close</button>
+        <button type="button" class="btn btn-secondary" id="close_button2">Close</button>
       </div>
     </div>
   </div>

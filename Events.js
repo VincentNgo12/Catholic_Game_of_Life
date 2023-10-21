@@ -3,10 +3,27 @@ var available_events = {
 								new Choice("I guess I will study further... I dunno.",
 										new Outcome("A New Scholar!", "Welcome to post-secondary studies! You will study all mankind's knowledge here. It will be quite a strain on your kidney tho...", {wealth: -50000, college: true})),
 								new Choice("Nah, I'm good.",
-										new Outcome("Where your life starts...", "Okay, work.", {})),
+										new Outcome("Where your life starts...", "Alright, you are an adult now. Your life choices diverge from here.", {})),
 							]),
 	
-	"marriage" : new Event(),
+	"marriage" : new Event("Marriage!", "You decided you have found your soulmate! You guys have been together for a few years now and this feeling doesn't seem to go away. Would you like to marry this lovely person???",[
+									new Choice("Yes! I want to spend the rest of life with this person!",
+											new Outcome("Friend For Life!!!", "You were born for each other, this is God's plan! This lovely feeling is real... So was the wedding bills...", {happiness: 200, holiness: 50, wealth: -40000, married: true})),
+									new Choice("Woah! I heard that the wedding bills are very ex...",
+											new Outcome("Soulmate my arse", "Great Job! You mange to keep yourself from spending 30000 dollars. But you couldn't keep her...", {happiness: -500, holiness: 50}))			
+							]),
+	"have_kids" : new Event("*Honey, let's have kids!*", "It's mating season! You and your partner are both fertilizable creatures, want to make some babies?",[
+									new Choice("Oh yeah! Let's us have... You know... Sexy stuff...",
+											new Outcome("Passed on the Genes!", "Your ancestors are proud, your kids are strong and is now starting their own Game of Life. However, you now have more mouths to feed...", {happiness: 200, holiness: 100, wealth: -2000, annual_cost: -7200})),
+									new Choice("SCREW Them KIDS!",
+											new Outcome("Natural Selection", "Why be so aggressive, you must be very sensitive about your wallet, huh? Smart choice though.", {happiness: -200, holiness: -100}))			
+							]),
+	"rating" : new Event("A Word from The Developer", "Respectfully, the developer is begging you to sacrifice a minute of your time to leave a 5-star review, not for the game, but a 5-star Google review for his workplace. While I was working on the game, some moron left a 1-star review for the place, AT 1 AM. You can find the place on Google Map as Spunky's Convenience Store, please leave a 5-star review and thank you very much for your consideration. I hate this place...",[
+									new Choice("Yeah Sure! I'll leave a review for Spunky's Convenience Store!",
+											new Outcome("THANK YOU", "THANK YOU! THANK YOU! Here, have some cash for the trouble!", {holiness: 100, wealth: 2000})),
+									new Choice("Damn, I kinda... Don't care.",
+											new Outcome("It's Okay...", "I don't blame you, God does.", {happiness: -20, holiness: -1000}))			
+							]),
 }
 
 

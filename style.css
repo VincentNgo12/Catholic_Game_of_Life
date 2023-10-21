@@ -61,5 +61,6 @@ body {
 
 
 #stats_modal{
+	display: block;
 	z-index : 900;
 }

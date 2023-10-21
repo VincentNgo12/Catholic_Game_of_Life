@@ -9,6 +9,9 @@ class Game{
 		
 		player.print_traits();
 		document.getElementById("next_button").addEventListener("click",()=>{this.next_clicked()});
+		document.getElementById("close_button1").addEventListener("click",()=>{document.getElementById("stats_modal").style.display="none"});
+		document.getElementById("close_button2").addEventListener("click",()=>{document.getElementById("stats_modal").style.display="none"});
+		document.getElementById("player_name").innerHTML = `${this.player.name}'s`;
 	}
 	
 	
@@ -28,13 +31,23 @@ class Game{
 	
 	
 	set_game_logic(){
+		if(this.stage === 17){ // A word from the developer
+			this.event_index = EVENT_INDEX;
+			return;
+		}
 		if(this.stage < 18){
 			this.event_index = 0;
 			return;
 		}else if(this.stage === 18 || (this.stage === 19 && !this.player.traits.college)){
 			this.event_index = EVENT_INDEX;
 			return;
-		}else if(this.stage === 23 || this.stage === 35 || this.stage === 50){
+		}else if(this.stage === 23 || this.stage === 36 || this.stage === 50){
+			this.event_index = EVENT_INDEX;
+			return;
+		}else if(this.stage === 30){ //Marriage
+			this.event_index = EVENT_INDEX;
+			return;
+		}else if(this.stage === 35 && this.player.traits.married){//Have kids
 			this.event_index = EVENT_INDEX;
 			return;
 		}else{
@@ -45,7 +58,10 @@ class Game{
 	
 	
 	pick_scenario(){
-		if(this.event_index === SCENARIO_INDEX){
+		if(this.event_index === EVENT_INDEX && this.stage === 17){ // A word from the developer
+			return available_events["rating"];
+		}
+		if(this.event_index === SCENARIO_INDEX && this.stage <= 18){
 			return random(scenarios[`stage_${this.stage}`]);
 		}else if(this.event_index === ACTION_INDEX){
 			return get_available_actions(this.player);
@@ -55,8 +71,16 @@ class Game{
 		}else if(this.event_index === EVENT_INDEX && this.stage === 19 && !this.player.traits.college){
 			return apply_career(this.player, this.stage);
 			// CAREER DAYS!
-		}else if(this.event_index === EVENT_INDEX && (this.stage === 23 || this.stage === 35 || this.stage === 50)){
+		}else if(this.event_index === EVENT_INDEX && (this.stage === 23 || this.stage === 36 || this.stage === 50)){
 			return apply_career(this.player, this.stage);
+			// Marriage!
+		}else if(this.event_index === EVENT_INDEX && this.stage === 30){
+			return available_events["marriage"];
+			// have kids
+		}else if(this.event_index === EVENT_INDEX && this.stage === 35){
+			return available_events["have_kids"];
+		}else if(this.event_index === SCENARIO_INDEX){
+			return get_related_scenarios(this.player, this.stage);
 		}
 	}
 	
@@ -103,6 +127,34 @@ class Game{
 		}
 	}
 	
+	// Method to show stats
+	show_player_stats(){
+		// If the player has a job
+		if(this.player.traits.career){
+			document.querySelector("#career").innerHTML = this.player.traits.career.name;
+		}else if(this.stage <=12){
+			document.querySelector("#career").innerHTML = "Child";
+		}else if(this.player.traits.college && this.stage <= 23){
+			document.querySelector("#career").innerHTML = "College Student";
+		}else if(this.stage <=19){
+			document.querySelector("#career").innerHTML = "Teenager";
+		}else{
+			document.querySelector("#career").innerHTML = "Unemployed";
+		}
+		document.querySelector("#health").innerHTML = this.player.traits.health;
+		document.querySelector("#strength").innerHTML = this.player.traits.strength;
+		document.querySelector("#happiness").innerHTML = this.player.traits.happiness;
+		document.querySelector("#holiness").innerHTML = this.player.traits.holiness;
+		document.querySelector("#wealth").innerHTML = this.player.traits.wealth;
+		document.querySelector("#education").innerHTML = this.player.traits.education;
+		document.querySelector("#crime").innerHTML = this.player.traits.crime;
+		document.querySelector("#income").innerHTML = (this.player.traits.career)? this.player.traits.career.income : 0;
+		document.querySelector("#annual_cost").innerHTML = this.player.traits.annual_cost;
+		document.querySelector("#satisfaction").innerHTML = (this.player.traits.career)? this.player.traits.career.satisfaction : 0;
+		document.querySelector("#stats_modal").style.display = "block";
+		return;
+	}
+	
 	// method to dynamically create and display choice buttons
 	display_choices(choices) {
 		const choiceContainer = document.getElementById("choiceContainer");
@@ -140,6 +192,7 @@ class Game{
 			this.progress_stage()
 			.then(() => {
 				this.set_game_logic();
+				this.show_player_stats();
 				this.play_current_stage();
 			});
 		}else{
