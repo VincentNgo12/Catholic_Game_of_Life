@@ -137,17 +137,37 @@ var scenarios = {
 	"stage_10": [
 		new Scenario("Haunted House Dare", "Your friends dare you to enter a haunted house in the middle of nowhere. What's your decision?", [
 			new Choice("Fearlessly accept the dare", 
-				new Outcome("Where The Ghosts Hiding???", "You enter the spooky house, get deeply disappointed as there were no ghosts to be found. it's just another meth lab with half naked men lying around."), {strength: 5, happiness: -10, holiness: -10}),
+				new Outcome("Where The Ghosts Hiding???", "You enter the spooky house, get deeply disappointed as there were no ghosts to be found. it's just another meth lab with half naked men lying around.", {strength: 5, happiness: -10, holiness: -10})),
 			new Choice("Decline the dare", 
-				new Outcome("Wise Decision", "You avoid the haunted house, making a wise choice. Your friends may tease, but you're safe."), {happiness: 5, holiness: 10}),
+				new Outcome("Wise Decision", "You avoid the haunted house, making a wise choice. Your friends may tease, but you're safe.", {happiness: 5, holiness: 10})),
 		]),
 		new Scenario("Mysterious Secret Discovery", "You discover a mysterious secret inside you own house. What was it?", [
 			new Choice("Grandpa's Journal", 
-				new Outcome("Old Man... What did you...", "You unlock the journal's secrets, revealing a darker story than you expected."), {happiness: -20}),
-			new Choice("Leave the journal untouched", 
-				new Outcome("Unread Mysteries", "You decide not to delve into the mysterious journal, leaving its secrets unexplored."), {happiness: 5}),
-			new Choice("Consult an expert or adult", 
-				new Outcome("Wise Decision", "You seek guidance and decide not to read the journal without understanding its potential consequences."), {wisdom: 8}),
+				new Outcome("Old Man... What did you...", "You unlock the journal's secrets, revealing a darker story than you expected.", {happiness: -20})),
+			new Choice("Dad's Laptop Browsing History", 
+				new Outcome("Unexpected Ending", "You stumble upon your father's browsing history, only to find out he was just trying to figure out how to install Minecraft for you a few years ago. The truth is more innocent than you thought.", {happiness: 15})),
+			new Choice("An Old Camcorder in Mom's bedroom", 
+				new Outcome("Dear God...", "I wouldn't watch it if I were you.", {hapiness: -25})),
+		]),
+	],
+	"stage_11": [
+		new Scenario("Sleepover!", "You are at a sleepover and one of your friend is the first to fall asleep. What would you and your other friends to do him?", [
+			new Choice("Leave the Poor Guy alone", 
+				new Outcome("Fair enough...", "*You are right, this is not what Catholic classes have been teaching us.*", {holiness: 10})),
+			new Choice("Perform a microsurgery", 
+				new Outcome("Little Surgoens", "You and your friends did a small surgery on the dude, removing all his senses, and leaving him with only a pure Gateway to The Mind.", {happiness: 15, holiness: -200, crime: 100})),
+			new Choice("Loot him", 
+				new Outcome("It's Stealin time", "Boi, this guy is rich!", {hapiness: 10, holiness: -100, crime: 10})),
+		]),
+	],
+	"stage_12": [
+		new Scenario("It's math Time!", "Your classmates are arguing over which is the most interesting math concepts we have been learning so far. What is yours?", [
+			new Choice("Triangles", 
+				new Outcome("Pythagoras' Fetish", "I swear Pythagoras has a very odd relationship with triangles", {education: 10})),
+			new Choice("Computing", 
+				new Outcome("Yeah yeah, whatever Nerd", "We use calculators to draw tiddies!", {happiness: -15, education: 20})),
+			new Choice("I hate Math", 
+				new Outcome("Okay", "Okay", {education: -2})),
 		]),
 	],
 	"stage_18": [
