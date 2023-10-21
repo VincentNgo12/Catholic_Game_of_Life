@@ -10,28 +10,28 @@ let main_player;
 let game;
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent('canvas-container');
-  background(255);
-  main_player = new Person("Victor");
-  game = new Game(main_player);
-  game.play();
-
-  sunX = width / 2;
+	let canvas = createCanvas(windowWidth, windowHeight);
+	canvas.parent('canvas-container');
+	background(255);
+	main_player = new Person("Victor");
+	game = new Game(main_player);
+	game.play();
+	
+	sunX = width / 2;
   sunY = height/2-10;
-  angleMode(DEGREES);
+	angleMode(DEGREES);
 }
 
 function draw() {
-  // Age ranges from 0 to 80, mapping it to time from 0 to 24 hours
+	// Age ranges from 0 to 80, mapping it to time from 0 to 24 hours
   let day_time = map(game.stage, 1, 80, 0, 24);
-  // Sky background
+	// Sky background
   background(247, 178, 209);
-
-  // Calculate the position of the sun and moon
+	
+	// Calculate the position of the sun and moon
   sunY = map(day_time, 0, 12, height/2-10, -100);
-  stroke(0);
-  strokeWeight(3);
+	stroke(0);
+	strokeWeight(3);
   // Draw the sun
   fill(255, 204, 0); // Yellow
   ellipse(sunX, sunY, sunRadius * 2);
@@ -42,14 +42,14 @@ function draw() {
   // Draw the ground
   fill(34, 139, 34); // Green
   rect(0, height / 2, width, height / 2);
-
-  // draw player
-  draw_person(width/2, height / 2+190, main_player);
-
-  // Display current age in the top-right corner
+	
+	// draw player
+	draw_person(width/2, height / 2+190, main_player);
+	
+	// Display current age in the top-right corner
   displayCurrentAge(game.stage);
-
-   // Update ray length and direction
+	
+	 // Update ray length and direction
   rayLength += rayLengthChange;
   if (rayLength > maxRayLength || rayLength < minRayLength) {
     rayLengthChange *= -1; // Reverse the direction of ray length change
@@ -69,30 +69,30 @@ function drawSunRays(x, y, numRays, length, radius) {
 
 
 function draw_person(x, y, person) {
-  let race = (person.race=="ginger") ? "orange" : person.race;
-  let size = constrain(person.traits.strength/50, 2, 20);
-  let age = 50;
-  let headSize = 80;
-  let bodyLength = 180;
-  let armLength = 90;
-  let legLength = 110;
+	let race = (person.race=="ginger") ? "orange" : person.race;
+	let size = constrain(person.traits.strength/50, 2, 20);
+	let age = 50;
+	let headSize = 80;
+	let bodyLength = 180;
+	let armLength = 90;
+	let legLength = 110;
   // Calculate stickman proportions based on age
-  if(age <= 7){
-    headSize = age*5.5;
-    bodyLength = age*14.2;
-    armLength = age*6.5;
-    legLength = age*8;
-  }else if(age <=25){
-    headSize = 80
-    bodyLength = 180
-    armLength = 90
-    legLength = 110
-  }
+	if(age <= 7){
+		headSize = age*5.5;
+		bodyLength = age*14.2;
+		armLength = age*6.5;
+		legLength = age*8;
+	}else if(age <=25){
+		headSize = 80
+		bodyLength = 180
+		armLength = 90
+		legLength = 110
+	}
 
   // Draw the head
   fill(race);
-  stroke(race);
-  strokeWeight(size);
+	stroke(race);
+	strokeWeight(size);
   ellipse(x, y - (headSize/2 + bodyLength), headSize, headSize);
 
   // Draw the body
@@ -108,12 +108,11 @@ function draw_person(x, y, person) {
 }
 
 
-
 function displayCurrentAge(age) {
   // Display the current age as text in the top-right corner
   fill(0);
   textSize(50);
   textAlign(RIGHT, TOP);
   text(`Age : `, width - 90, 50);
-  text(`${age}`, width - 130, 120);
+	text(`${age}`, width - 130, 120);
 }

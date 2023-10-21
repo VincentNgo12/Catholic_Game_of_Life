@@ -1,7 +1,7 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .modal {
@@ -37,7 +37,7 @@ body {
 }
 
 .choices button {
-  width:100%;
+	width:100%;
   padding: 10px 20px;
   margin: 5px;
   background-color: #3483eb;
@@ -57,4 +57,9 @@ body {
   align-items: center; /* Vertical centering */
 /*   height: 100vh; /* 100% of viewport height for vertical centering */ */
   background-color: "white"; /* Background color for the container */
+}
+
+
+#stats_modal{
+	z-index : 900;
 }
