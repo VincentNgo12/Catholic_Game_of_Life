@@ -42,7 +42,7 @@ function get_available_actions(person){
 	if(person.traits.college){
 		choices.push(
 			new Choice("Study",
-					new ActionOutcome("Keeping the grind up!", [
+					new ActionOutcome("Dedicated Student", [
 						"One day, all your hard work will pay off.",
 						"That Bachelor's degree can't guaranteed you a good job, only you can.",
 						"Do what's right, not what's easy.",
