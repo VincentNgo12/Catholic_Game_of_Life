@@ -4,7 +4,6 @@ class Person{
 		this.age = 0;
 		this.race = random(["white","yellow","black","blue","grey","ginger"]);
 		this.gender = random(["male","female"]);
-		this.alive = true;
 		
 		this.traits = {
 			married : false,

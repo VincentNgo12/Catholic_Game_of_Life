@@ -26,7 +26,7 @@ function get_available_actions(person){
 		)]
 	
 	
-	if(person.career){
+	if(person.traits.career){
 		choices.push(
 		new Choice("Gind",
 				new ActionOutcome("Keeping the grind up!", [
@@ -36,6 +36,19 @@ function get_available_actions(person){
 					"Those extra hours will pay out, I promise."
 				], {wealth: person.career.income*0.3, hapiness: -100})
 		));
+	}
+
+
+	if(person.traits.college){
+		choices.push(
+			new Choice("Study",
+					new ActionOutcome("Keeping the grind up!", [
+						"One day, all your hard work will pay off.",
+						"That Bachelor's degree can't guaranteed you a good job, only you can.",
+						"Do what's right, not what's easy.",
+						"I just need to be a virgin for a few more years..."
+					], {education: 100, hapiness: -50})
+			));
 	}
 	
 	

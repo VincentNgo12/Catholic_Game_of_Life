@@ -237,10 +237,22 @@ class Game{
 
 		loop();
 	}
+
+
+	update_player_stats(){
+		if(this.player.traits.career){
+			let income = this.player.traits.career.income;
+			let satisfaction = this.player.traits.career.jobSatisfaction;
+			this.player.traits.wealth += income;
+			this.player.traits.happiness += satisfaction;
+		}
+
+		return;
+	}
 	
 	
 	game_ended(){
-		return !this.player.alive;
+		return (this.stage >= 80 || this.player.traits.health <= 0);
 	}
 }
 
