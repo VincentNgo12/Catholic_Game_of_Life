@@ -1,3 +1,7 @@
+let early_morning_color;
+let morning_blue;
+let sunset;
+let night;
 let sunX, sunY;
 let sunRising = true;
 let sunRadius = 80;
@@ -20,16 +24,20 @@ function setup() {
 	sunX = width / 2;
   sunY = height/2-10;
 	angleMode(DEGREES);
+	early_morning_color = color(247, 178, 209);
+	morning_blue = color(45, 193, 235);
+	sunset = color(238, 93, 108);
+	night = color(19, 24, 98);
 }
 
 function draw() {
 	// Age ranges from 0 to 80, mapping it to time from 0 to 24 hours
-  let day_time = map(game.stage, 1, 80, 0, 24);
+  let day_time = map(game.stage, 1, 80, 0, 24, true);
 	// Sky background
-  background(247, 178, 209);
+  background(get_sky_color(day_time));
 	
 	// Calculate the position of the sun and moon
-  sunY = map(day_time, 0, 12, height/2-10, -100);
+  sunY = map(day_time, 0, 18, height/2-10, -maxRayLength-sunRadius);
 	stroke(0);
 	strokeWeight(3);
   // Draw the sun
@@ -45,6 +53,7 @@ function draw() {
 	
 	// draw player
 	draw_person(width/2, height / 2+190, main_player);
+	if(main_player.traits.married) draw_person(width/2+180, height / 2+190, main_player); //if married
 	
 	// Display current age in the top-right corner
   displayCurrentAge(game.stage);
@@ -71,23 +80,24 @@ function drawSunRays(x, y, numRays, length, radius) {
 function draw_person(x, y, person) {
 	let race = (person.race=="ginger") ? "orange" : person.race;
 	let size = constrain(person.traits.strength/50, 2, 20);
-	let age = 50;
+	let age = game.stage;
 	let headSize = 80;
 	let bodyLength = 180;
 	let armLength = 90;
 	let legLength = 110;
-  // Calculate stickman proportions based on age
+	// Calculate stickman proportions based on age
 	if(age <= 7){
 		headSize = age*5.5;
 		bodyLength = age*14.2;
 		armLength = age*6.5;
 		legLength = age*8;
 	}else if(age <=25){
-		headSize = 80
-		bodyLength = 180
-		armLength = 90
-		legLength = 110
+		headSize = lerp(7*5.5, 80, (age-8)/17);
+		bodyLength = lerp(7*14.2, 180, (age-8)/17);
+		armLength = lerp(7*6.5, 90, (age-8)/17);
+		legLength = lerp(7*8, 110, (age-8)/17);
 	}
+	
 
   // Draw the head
   fill(race);
@@ -115,4 +125,17 @@ function displayCurrentAge(age) {
   textAlign(RIGHT, TOP);
   text(`Age : `, width - 90, 50);
 	text(`${age}`, width - 130, 120);
+}
+
+
+function get_sky_color(time){
+	if(time<=6){
+		return lerpColor(early_morning_color,morning_blue,time-1/5);
+	}else if(time <= 12){
+		return morning_blue;
+	}else if(time <= 15){
+		return lerpColor(morning_blue,sunset,time-13/2);
+	}else if(time <= 24){
+		return lerpColor(sunset,night,time-16/8);
+	}
 }

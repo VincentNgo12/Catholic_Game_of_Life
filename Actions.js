@@ -4,9 +4,9 @@ function get_available_actions(person){
 				new ActionOutcome("Working Out Them Muscles", [
 					"They don't know me son!",
 					"Who's gonna carry the boats!",
-					"You felt like a beast!",
+					"Working hard makes me hard!",
 					"Pumping Iron!"
-				], {strength: 50})
+				], {strength: 50, health: 2})
 		),
 		new Choice("Pray",
 				new ActionOutcome("Thoughts and Prayers", [

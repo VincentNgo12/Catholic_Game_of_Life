@@ -1,7 +1,7 @@
 var scenarios = {
 	"stage_1": [
 		new Scenario("Cockroach", "You found a cockroach in the toilet, what would you do???", [
-			new Choice("Put it in mouth and munch it", 
+			new Choice("Put it in your mouth and start munching on it.", 
 					new Outcome("Pure Protein", "Pretty dirty tho...", {health: -10, holiness: -10, happiness: 5, strength : 1})),
 			new Choice("Ignore it", 
 					new Outcome("", "Fair enough..."))
