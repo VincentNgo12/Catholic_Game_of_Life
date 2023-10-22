@@ -5,12 +5,14 @@ const EVENT_INDEX = 2;
 class Game{
 	constructor(player){
 		this.player = player;
-		this.stage = 1;
+		this.stage = 6;
 		
 		player.print_traits();
 		document.getElementById("next_button").addEventListener("click",()=>{this.next_clicked()});
 		document.getElementById("close_button1").addEventListener("click",()=>{document.getElementById("stats_modal").style.display="none"});
 		document.getElementById("close_button2").addEventListener("click",()=>{document.getElementById("stats_modal").style.display="none"});
+		document.getElementById("close_button3").addEventListener("click",()=>{document.getElementById("gameEndingModal").style.display="none"});
+		document.getElementById("close_button4").addEventListener("click",()=>{document.getElementById("gameEndingModal").style.display="none"});
 		document.getElementById("player_name").innerHTML = `${this.player.name}'s`;
 	}
 	
@@ -26,6 +28,8 @@ class Game{
 			this.current_scenario = this.pick_scenario();
 			this.current_choices = this.current_scenario.choices;
 			this.show_scenario();
+		}else{
+			this.show_ending_modal();
 		}
 	}
 	
@@ -208,7 +212,7 @@ class Game{
 		let fadeIn = 0;
 		let textFadeIn = 0;
 		let fadeOut = 255;
-		let stage = (this.game_ended()) ? "Game Over" : this.stage;
+		
 		noLoop();
 
 		while(fadeIn<255){
@@ -219,6 +223,7 @@ class Game{
 			await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
 		}
 		this.stage++;
+		let stage = (this.game_ended()) ? "Game Over" : this.stage;
 		while(textFadeIn<255){
 			fill(0);
 			rect(0, 0, width, height);
@@ -249,6 +254,19 @@ class Game{
 			this.player.traits.happiness += satisfaction;
 		}
 
+		return;
+	}
+	
+	
+		// Method to show ending
+	show_ending_modal(){
+		document.querySelector("#ending_strength").innerHTML = this.player.traits.strength;
+		document.querySelector("#ending_happiness").innerHTML = this.player.traits.happiness;
+		document.querySelector("#ending_holiness").innerHTML = this.player.traits.holiness;
+		document.querySelector("#ending_wealth").innerHTML = this.player.traits.wealth;
+		document.querySelector("#ending_education").innerHTML = this.player.traits.education;
+		document.querySelector("#ending_crime").innerHTML = this.player.traits.crime;
+		document.querySelector("#gameEndingModal").style.display = "block";
 		return;
 	}
 	
