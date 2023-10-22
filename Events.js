@@ -30,10 +30,14 @@ var available_events = {
 let normal_jobs = [
 	new Outcome("Mc Donalds", "You are now working at Mc Donalds. Hurray, I guess...", 
 			{career: new Career("Mc Donalds Employee", 23000, -50)}),
-	new Outcome("Plumber", "You are now working at Mc Donalds. Hurray, I guess...", 
-			{career: new Career("Mc Donalds Employee", 23000, -50)}),
-	new Outcome("Mc Donalds", "You are now working at Mc Donalds. Hurray, I guess...", 
-			{career: new Career("Mc Donalds Employee", 23000, -50)}),
+	new Outcome("Plumber", "'I hope it was like in the movies...'", 
+			{career: new Career("Pumbler", 37000, 10)}),
+	new Outcome("Construction Workers", "Please, please don't end up on LiveLeaks", 
+			{career: new Career("Mc Donalds Employee", 40000, -5)}),
+	new Outcome("Janitor", "You bring order to society.", 
+			{career: new Career("Janitor", 33000, 5)}),
+	new Outcome("Pizza Delivery", "'You have 25 minutes, GO!'", 
+			{career: new Career("Pizza Delivery", 33000, 10)}),
 ]
 
 let college_jobs = [

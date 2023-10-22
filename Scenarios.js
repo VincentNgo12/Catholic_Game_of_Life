@@ -31,16 +31,8 @@ var scenarios = {
       new Outcome("Sweet Child", "Your first word was 'Mama.' Your mother are delighted! Dad was pissed", {happiness: 2})),
     new Choice("Dada", 
       new Outcome("Daddy's Hero", "Your first word was 'Dada.' Your dad is overjoyed!", {happiness: 3})),
-    new Choice("Dear Lord", 
-      new Outcome("The Lord is with you...", "Amen...", {happiness: 5,holiness: 10})),
-  ]),
-  new Scenario("Favorite Color", "What's your favorite color at age 3?", [
-    new Choice("Blue", 
-      new Outcome("Blue Lover", "You adore the color blue. It's your favorite!", {happiness: 1})),
-    new Choice("Yellow", 
-      new Outcome("Sunshine Enthusiast", "You can't get enough of yellow. It's your favorite color!", {happiness: 1})),
-    new Choice("Red", 
-      new Outcome("Red Passion", "Your favorite color is red. You find it exciting!", {happiness: 1})),
+    new Choice("%@#*$#", 
+      new Outcome("...", "What did you say to me, little s....", {happiness: -5})),
   ]),
   new Scenario("Playtime Adventure", "You have a chance to go on a fun adventure in the backyard. Do you go?", [
     new Choice("Backyard Adventure", 
@@ -97,13 +89,13 @@ var scenarios = {
 		]),
 	],
 	"stage_7": [
-		new Scenario("Favorite Subject in School", "You have a favorite subject in school. What is it?", [
-			new Choice("Science",
-				new Outcome("Little Scientist", "You love conducting experiments and learning about the world.", {happiness: 8, education: 10})),
-			new Choice("Art",
-				new Outcome("Creative Artist", "You enjoy expressing yourself through painting and drawing.", {happiness: 4})),
-			new Choice("Physical Education",
-				new Outcome("Athletic Enthusiast", "You excel in sports and enjoy staying active.", {happiness: 8, strength: 10})),
+		new Scenario("The Mysterious Package", "There was a strange package lying around in the corner of the sewer that you have been ignoring for a while now. However, the smell is getting unbearable. What would you do?", [
+			new Choice("Open it up",
+				new Outcome("Oh, that's a carcass...", "You opened the box to discover a rotting corpse of a kitten. This is surely not the first time this had happended aroudn here.", {happiness: -100})),
+			new Choice("Not my business.",
+				new Outcome("Someone else's job", "You continue to ignore the package and choose another route to school", {happiness: 5})),
+			new Choice("Call the authorities",
+				new Outcome("The polices are here", "Some polices and adults have gathered around the package but not a single man tell you what's inside the box. Your curiosity made you regret your choice.", {happiness: -8})),
 		]),
 	],
 	"stage_8": [
@@ -115,23 +107,15 @@ var scenarios = {
 			new Choice("Telepathy",
 				new Outcome("Mind Reader", "You dream of reading minds but you don't know how to read.", {education: -8})),
 		]),
-		new Scenario("Dream Job", "You're asked what job you want to have when you grow up. What's your dream job at age 8?", [
-			new Choice("Astronaut",
-				new Outcome("Space Explorer", "You aspire to explore outer space and discover new planets.", {happiness: 10, education: 10})),
-			new Choice("Veterinarian",
-				new Outcome("Animal Lover", "You dream of helping and caring for animals as a veterinarian.", {happiness: 8, education: 8})),
-			new Choice("Explorer",
-				new Outcome("Adventurous Spirit", "You want to explore the world and have thrilling adventures.", {happiness: 8, creativity: 8})),
-		]),
 	],
 	"stage_9": [
-		new Scenario("Dream Job", "You're asked what job you want to have when you grow up. What's your dream job at age 8?", [
-			new Choice("Astronaut",
-				new Outcome("Space Explorer", "You aspire to explore outer space and discover new planets.", {happiness: 5, education: 10})),
-			new Choice("A Full-time Dinosaur",
-				new Outcome("Snap Out of IT!", "You are 9 now! You are a joke in front of the class and a disapointment for your mother.", {happiness: -18, education: -20})),
-			new Choice("Hokage",
-				new Outcome("Respected Fearfully", "All the boys fear you, in respect. The teacher wasn't as impressed", {happiness: 8, education: -15, strength: 5})),
+		new Scenario("The Forbidden Tree", "There was a forbidden tree in the school yard which you were told to not eat any food that it bears. You recall the Adman and Eve story from Mr. Ortman class and see yourself in that exact situation. What do?", [
+			new Choice("They can't tell me what to do!",
+				new Outcome("Pursuit of Strength and Wisdom!", "You climb the tree and start devouring the forbidden fruits, feeling euphoric the whole time! Turns out, the tree was deeply sprayed with pesticide and you only realized when the symptoms kick in.", {health: -200, holiness: -200})),
+			new Choice("I want them but I can't climb trees.",
+				new Outcome("Strength problem", "You failed to disappoint Mr. Ortman I guess...", {happiness: -5, strengh: -10})),
+			new Choice("Better listen to Mr. Ortman!",
+				new Outcome("Good Learner", "You avoided death there, the fruits was sprayed with pesticide leaving you with no chance of surving if you were eating them.", {education: 10, holiness: 10})),
 		]),
 	],
 	"stage_10": [
@@ -157,17 +141,52 @@ var scenarios = {
 			new Choice("Perform a microsurgery", 
 				new Outcome("Little Surgoens", "You and your friends did a small surgery on the dude, removing all his senses, and leaving him with only a pure Gateway to The Mind.", {happiness: 15, holiness: -200, crime: 100})),
 			new Choice("Loot him", 
-				new Outcome("It's Stealin time", "Boi, this guy is rich!", {hapiness: 10, holiness: -100, crime: 10})),
+				new Outcome("Hidden treasures", "Wow, this guy is rich!", {hapiness: 10, holiness: -100, crime: 10, wealth: 20})),
 		]),
 	],
 	"stage_12": [
-		new Scenario("It's math Time!", "Your classmates are arguing over which is the most interesting math concepts we have been learning so far. What is yours?", [
-			new Choice("Triangles", 
-				new Outcome("Pythagoras' Fetish", "I swear Pythagoras has a very odd relationship with triangles", {education: 10})),
-			new Choice("Computing", 
-				new Outcome("Yeah yeah, whatever Nerd", "We use calculators to draw tiddies!", {happiness: -15, education: 20})),
-			new Choice("I hate Math", 
-				new Outcome("Okay", "Okay", {education: -2})),
+		new Scenario("Uneasy Neighborhood", "On your way home, you saw a group of teenagers beating an old man. What is your next move?", [
+			new Choice("Leave the old man alone!", 
+				new Outcome("What were you thinking??", "The boys shove you in to beat with the old man. Who do you think you are? Muhammad Ali?", {health: -10, happiness: -10, holiness: 20})),
+			new Choice("Can I join, please 👉👈.", 
+				new Outcome("Sure thing, buddy.", "The group of teens gladly let you help them beat up the old man. Wholesome interaction!", {happiness: 25, strengh: 20, holiness:-30})),
+			new Choice("Not my problem.", 
+				new Outcome("You just don't care.", "That would be a smart choice in this situation.", {holiness: -10})),
+		]),
+	],
+	"stage_13": [
+		new Scenario("Pepsi alternative?", "In an evening, your uncle offer you a cool looking can of soda. 'Heineken'? You have never heard of it before. Wann try?", [
+			new Choice("Looks cool, must be delicious.", 
+				new Outcome("Disgusting", "The drink is bitter and disgusting, you thinks uncle is an idiot for drinking this.", {health: -1, happiness: -5})),
+			new Choice("My mom said no sodas at night.", 
+				new Outcome("", "'No drinks for you then, buddy.'", {happiness: -5, holiness:10})),
+		]),
+	],
+	"stage_14": [
+		new Scenario("First crush", "You soon realize that you were spending alot of time thinking about a paticular person in your classroom. Who was that person?", [
+			new Choice("The most beautiful and talented kid in the room", 
+				new Outcome("Out of your league", "'Bro, instead of thinking about someone who doesn't care about you, why don't you think for your mother?'", {happiness: -5})),
+			new Choice("The science teacher", 
+				new Outcome("Hol up", "'Bro... isn't that your mother???'", {happiness: 5, holiness: -10})),
+		]),
+	],
+	"stage_15": [
+		new Scenario("Lazy Sunday Walk", "You are just like any other teenagers, full of energy yet so tired. Do you want to follow mom to Church every Sunday?", [
+			new Choice("Yes", 
+				new Outcome("Church Child", "You barely kept your attention span during mass, but you went to it anyway. Good job!", {happiness: 10, holiness: 20})),
+			new Choice("Nah, let me sleep", 
+				new Outcome("Lazy Child", "Zzzzzzz...Zzzz", {holiness: -10})),
+		]),
+	],
+	"stage_16": [
+		new Scenario("Time to Shine", "You see a man assaulting a pregnant woman in a small alley at night, he was not armed just casually punching her. What would you do given you have a muscled 16-year old body?", [
+			new RandomChoice("Pick up a fight with the man",[ 
+				new Outcome("Devastated", "Oh, I didn't mention he was 3 times your size? Too bad. Kudo for standing up for the woman tho.", {health: -20, happiness: -20, holiness: 50}),
+				new Outcome("Exhausted Warrior", "It was a long fight, you two exchange blows but no one seems to be winning. You two soon get tired and decided to leave.", {health: -2, happiness: -5, holiness: 50}),
+				new Outcome("Overpowered", "You beat the man to a pulp, thinking the pregnant woman would then be your girlfriend but she said she already has a husband. Goddamit! This happens everytime!", {hapiness: -1, strengh: 20, holiness: 50}),
+				]),
+			new Choice("Make it a 2v2", 
+				new Outcome("Fair Play", "You joined the man to punch the pregnant woman (2v2 combat). She didn't stand a single chance against you.", {holiness: -300, strengh: 10, happiness: 10})),
 		]),
 	],
 	"stage_18": [
