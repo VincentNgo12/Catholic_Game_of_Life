@@ -208,7 +208,7 @@ class Game{
 		let fadeIn = 0;
 		let textFadeIn = 0;
 		let fadeOut = 255;
-		let text = (this.game_ended()) ? "Game Over" : this.stage;
+		let stage = (this.game_ended()) ? "Game Over" : this.stage;
 		noLoop();
 
 		while(fadeIn<255){
@@ -226,7 +226,7 @@ class Game{
 			fill(255,255,255,textFadeIn);
 			stroke(255,255,255,textFadeIn);
 			textSize(80);
-			text(text, width / 2, height / 2);
+			text(stage, width / 2, height / 2);
 			textFadeIn += 5;
 			await new Promise(resolve => setTimeout(resolve, 1000 / frameRate()));
 		}while(fadeOut>0){
