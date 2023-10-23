@@ -1,4 +1,9 @@
 var available_events = {
+	"introduction" : new Event("Welcome!", "This is the Catholic Game of Life with the theme of Discernment and Vocation. Each stage, you will be presented with a scenraio, or an event with available choices for you to make. Be careful, these choices will affect your character's traits and therefore your gameplay will diverge into different paths. That's Discernment!", [
+		new Choice("Let's Play!!!",
+				new Outcome("Disclaimer", "I swear your character's race and gender don't affect the game's logics. Every outcomes are either random or based of your current traits. I'm not discriminating on anyone. I promise...", {})),
+	]),
+
 	"college" : new Event("College", "You have just finished High School, you are strong and young. Now you have to make an important decision in you life between studying in college for the next 5 years or start working from now on. What would it be?", [
 								new Choice("I guess I will study further... I dunno.",
 										new Outcome("A New Scholar!", "Welcome to post-secondary studies! You will study all mankind's knowledge here. It will be quite a strain on your kidney tho...", {wealth: -50000, college: true})),

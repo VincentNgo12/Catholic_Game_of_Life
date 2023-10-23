@@ -34,6 +34,10 @@ class Game{
 	
 	
 	set_game_logic(){
+		if(this.stage === 1){//Introduction
+			this.event_index = EVENT_INDEX;
+			return;
+		}
 		if(this.stage === 17){ // A word from the developer
 			this.event_index = EVENT_INDEX;
 			return;
@@ -61,6 +65,10 @@ class Game{
 	
 	
 	pick_scenario(){
+		if(this.event_index === EVENT_INDEX && this.stage === 17){ // An introduction
+			this.event_index--;
+			return available_events["introduction"];
+		}
 		if(this.event_index === EVENT_INDEX && this.stage === 17){ // A word from the developer
 			return available_events["rating"];
 		}
