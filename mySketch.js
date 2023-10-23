@@ -14,6 +14,7 @@ let main_player;
 let game;
 
 function setup() {
+	pixelDensity(1);
 	let canvas = createCanvas(windowWidth, windowHeight);
 	canvas.parent('canvas-container');
 	background(255);
