@@ -5,7 +5,7 @@ const EVENT_INDEX = 2;
 class Game{
 	constructor(player){
 		this.player = player;
-		this.stage = 6;
+		this.stage = 1;
 		
 		player.print_traits();
 		document.getElementById("next_button").addEventListener("click",()=>{this.next_clicked()});
