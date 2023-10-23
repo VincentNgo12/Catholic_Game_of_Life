@@ -65,7 +65,7 @@ class Game{
 	
 	
 	pick_scenario(){
-		if(this.event_index === EVENT_INDEX && this.stage === 17){ // An introduction
+		if(this.event_index === EVENT_INDEX && this.stage === 1){ // An introduction
 			this.event_index--;
 			return available_events["introduction"];
 		}
