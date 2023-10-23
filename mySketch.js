@@ -13,17 +13,17 @@ let rayLengthChange = 0.4; // Change in ray length per frame
 let main_player;
 let game;
 
-function setup() {
+async function setup() {
 	pixelDensity(1);
 	let canvas = createCanvas(windowWidth, windowHeight);
 	canvas.parent('canvas-container');
 	background(255);
-	main_player = new Person("Victor");
+	main_player = await promptForUserInfo();
 	game = new Game(main_player);
 	game.play();
 	
 	sunX = width / 2;
-  sunY = height/2-10;
+  	sunY = height/2-10;
 	angleMode(DEGREES);
 	early_morning_color = color(247, 178, 209);
 	morning_blue = color(45, 193, 235);
@@ -32,6 +32,7 @@ function setup() {
 }
 
 function draw() {
+	if(!game) return;
 	// Age ranges from 0 to 80, mapping it to time from 0 to 24 hours
   let day_time = map(game.stage, 1, 80, 0, 24, true);
 	// Sky background
@@ -54,7 +55,7 @@ function draw() {
 	
 	// draw player
 	draw_person(width/2, height / 2+190, main_player);
-	if(main_player.traits.married) draw_person(width/2+180, height / 2+190, main_player); //if married
+	if(main_player.traits.married) draw_person(width/2+180, height / 2+190, main_player);
 	
 	// Display current age in the top-right corner
   displayCurrentAge(game.stage);
@@ -140,3 +141,23 @@ function get_sky_color(time){
 		return lerpColor(sunset,night,time-16/8);
 	}
 }
+
+
+function promptForUserInfo(){
+	return new Promise((resolve, reject) => {
+		document.getElementById("prompt_submit").addEventListener("click", () =>{
+			// Retrieve user inputs
+			const name = document.getElementById("prompt_name").value.trim();
+			const gender = document.getElementById("prompt_gender").value;
+			const race = document.getElementById("prompt_race").value;
+			
+			if (name === "") {
+					alert("Please enter your name.");
+			} else {
+					resolve(new Person(name, race, gender));
+					document.getElementById("prompt_modal").style.display = "none";
+			}
+		})
+	})
+}
+

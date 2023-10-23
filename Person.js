@@ -1,9 +1,8 @@
 class Person{
-	constructor(name){
+	constructor(name, race, gender){
 		this.name = name;
-		this.age = 0;
-		this.race = random(["white","yellow","black","blue","grey","ginger"]);
-		this.gender = random(["male","female"]);
+		this.race = race;
+		this.gender = gender;
 		
 		this.traits = {
 			married : false,
@@ -29,11 +28,6 @@ class Person{
 				this.traits[effect] += effects[effect];
 			}
 		}
-	}
-	
-	
-	print_traits(){
-		console.log(`${this.name} is a ${this.race} ${this.gender}`);
 	}
 }
 

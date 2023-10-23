@@ -7,7 +7,6 @@ class Game{
 		this.player = player;
 		this.stage = 1;
 		
-		player.print_traits();
 		document.getElementById("next_button").addEventListener("click",()=>{this.next_clicked()});
 		document.getElementById("close_button1").addEventListener("click",()=>{document.getElementById("stats_modal").style.display="none"});
 		document.getElementById("close_button2").addEventListener("click",()=>{document.getElementById("stats_modal").style.display="none"});
