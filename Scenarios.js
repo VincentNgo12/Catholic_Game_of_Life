@@ -190,7 +190,7 @@ var scenarios = {
 		]),
 	],
 	"stage_17": [
-		new Scenario("Dear, Mr. Huyen", "You see a man assaulting a pregnant woman in a small alley at night, he was not armed just casually punching her. What would you do given you have a muscled 17-year old body?", [
+		new Scenario("Alley Hero", "You see a man assaulting a pregnant woman in a small alley at night, he was not armed just casually punching her. What would you do given you have a muscled 17-year old body?", [
 			new RandomChoice("Pick up a fight with the man",[ 
 				new Outcome("Devastated", "Oh, I didn't mention he was 3 times your size? Too bad. Kudo for standing up for the woman tho.", {health: -20, happiness: -20, holiness: 50}),
 				new Outcome("Exhausted Warrior", "It was a long fight, you two exchange blows but no one seems to be winning. You two soon get tired and decided to leave.", {health: -2, happiness: -5, holiness: 50}),
@@ -214,29 +214,39 @@ var scenarios = {
 
 
 var mid_life_scenarios = [
-		new Scenario("It's that time of age.", "What did you want to become when you were 4?", [
-			new Choice("Superheroes", 
-				new Outcome("Heroic!!", "You feel like a hero.", {happiness: 5, strength: 10})),
-			new Choice("Dinosaurs", 
-				new Outcome("Beast!!", "Your favortie was the Spinosaurus, don't deny that", {happiness: 10, strengh: 10})),
-			new Choice("Dogs", 
-				new Outcome("You mean wolfs???", "Please don't be a furry...", {happiness: 5})),
+		new Scenario("Social Interaction", "A homeless man offer you 20$ to kiss him on the cheeks, what would you do?", [
+			new Choice("20$ is 20$", 
+				new Outcome("Night Night", "You kissed the man goodnight", {happiness: 5, wealth: 20})),
+			new Choice("Ignore him", 
+				new Outcome("Normal Day in Downtown", "It does not bother you.", {})),
+			new Choice("Beat Him Up", 
+				new Outcome("Rewarding", "You beat him up and took his 20$", {happiness: 5, strength: 5, wealth: 20, holiness: -10})),
 		]),
-		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
-			new Choice("Excited", 
-				new Outcome("Eager Learner", "You're excited to go to school and make new friends.", {happiness: 10, education: 10})),
-			new Choice("Nervous", 
-				new Outcome("Little Worrier", "You're a bit nervous, but it's normal for the first day.", {happiness: -5})),
-			new Choice("Pumped UP", 
-				new Outcome("Bring on em kids", "Looking for a worthy opponent, huh?", {happiness: 5, strength: 10})),
+		new Scenario("Stressful Day", "You had a paticular bad day today, what would you do to ease the stress?", [
+			new Choice("Eat Junk Foods", 
+				new Outcome("My comfort zone", "You are happy and comfy eating junk food in your cozy place. Surely life can't get better than this. Still pretty unhealthy tho.", {happiness: 10, health: -1})),
+			new Choice("Consume Alcohol", 
+				new Outcome("Alcoholic", "Those stuff are depressant, they not going to make you feel any better.", {happiness: -20, health: -10, holiness: -10})),
+			new Choice("Suck it up", 
+				new Outcome("Doomers", "You go home and cried in the shower. Don't be so hard on yourself, you have options", {happiness: -30})),
+			new Choice("Beat up a homeless man", 
+				new Outcome("Satisfying...", "You found a homeless man and paid him to let you beat him up. You only paid 10$ but beat him to the hospital. You felt really sastifying afterward.", {happiness: 30, strengh: 20, wealth: 10, holiness: -50, crime: 50})),
 		]),
-		new Scenario("Favorite Toy", "What's your favorite toy at age 4?", [
-			new Choice("Building Blocks", 
-				new Outcome("Future Engineer", "You love playing with building blocks and building amazing structures.", {happiness: 3, education: 5})),
-			new Choice("Dolls", 
-				new Outcome("Doll Collector", "You adore playing with dolls and creating stories with them.", {happiness: 10})),
-			new Choice("Dad's Glock 17", 
-				new Outcome("Whoah Woah..", "Careful over there buddy!", {happiness: 5, holiness: -10, crime: 4})),
+		new Scenario("Public Washrooms", "You went to a public washroom and found out that somebody has clogged the toilet with thick tissues.", [
+			new Choice("Choose a different stall", 
+				new Outcome("Common Sense", "You just want to finish your businesses", {happiness: 3})),
+			new Choice("Unclog the toilet", 
+				new Outcome("Considerate Person", "You care about the janitor's feelings so you did his job. Good job!", {happiness: 10, holiness: 20})),
+			new Choice("Nuke The Toilet", 
+				new Outcome("Pure Evil", "You just had Taco Bells and decided to nuke this particular stall beyond repair just because you can. Now no one is fixing anything...", {happiness: 5, holiness: -20})),
+		]),
+		new Scenario("Public Washrooms", "You went to a public washroom and found out that somebody has clogged the toilet with thick tissues.", [
+			new Choice("Choose a different stall", 
+				new Outcome("Common Sense", "You just want to finish your businesses", {happiness: 3})),
+			new Choice("Unclog the toilet", 
+				new Outcome("Considerate Person", "You care about the janitor's feelings so you did his job. Good job!", {happiness: 10, holiness: 20})),
+			new Choice("Nuke The Toilet", 
+				new Outcome("Pure Evil", "You just had Taco Bells and decided to nuke this particular stall beyond repair just because you can. Now no one is fixing anything...", {happiness: 5, holiness: -20})),
 		]),
 	]
 
@@ -270,13 +280,13 @@ var college_scenarios = [
 
 
 var criminal_scenarios = [
-		new Scenario("It's that time of age.", "What did you want to become when you were 4?", [
-			new Choice("Superheroes", 
-				new Outcome("Heroic!!", "You feel like a hero.", {happiness: 5, strength: 10})),
-			new Choice("Dinosaurs", 
-				new Outcome("Beast!!", "Your favortie was the Spinosaurus, don't deny that", {happiness: 10, strengh: 10})),
-			new Choice("Dogs", 
-				new Outcome("You mean wolfs???", "Please don't be a furry...", {happiness: 5})),
+		new Scenario("Sketchy Contract", "Some stranger asked you to deliver a package to an abandoned warehouse for some good cash. Do you accept?", [
+			new Choice("Sure thing!", 
+				new Outcome("Good Money", "You delivered the package at the right location. No one said a thing, they just hand you a block of cash and tell you to leave. Good interaction!", {happiness: 20, wealth: 2000, crime: 100, holiness: -50})),
+			new Choice("Take the package and run away", 
+				new Outcome("The people didn't think it was funny..", "They shot you on the spot. You died the most stupid death possible.", {happiness: -100, health: -1000})),
+			new Choice("No thanks", 
+				new Outcome("Risky", "You walked away but the people kept on looking toward you. Weird...", {happiness: -10})),
 		]),
 		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
 			new Choice("Excited", 
@@ -298,13 +308,11 @@ var criminal_scenarios = [
 
 
 var catholic_scenarios = [
-		new Scenario("It's that time of age.", "What did you want to become when you were 4?", [
-			new Choice("Superheroes", 
-				new Outcome("Heroic!!", "You feel like a hero.", {happiness: 5, strength: 10})),
-			new Choice("Dinosaurs", 
-				new Outcome("Beast!!", "Your favortie was the Spinosaurus, don't deny that", {happiness: 10, strengh: 10})),
-			new Choice("Dogs", 
-				new Outcome("You mean wolfs???", "Please don't be a furry...", {happiness: 5})),
+		new Scenario("Help the poor", "The Church invites you to visit a large orphanage house because you are an active Church memeber. What would you do?", [
+			new Choice("Accept it", 
+				new Outcome("", "You went to the orphanage and helped maked the kids day better. Your Faith grows exponentially.", {happiness: 100, holiness: 100})),
+			new Choice("Deny it because you are busy", 
+				new Outcome("Regret", "You deeply regret that decission, you are not even that busy.", {happiness: -50, holiness: -10})),
 		]),
 		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
 			new Choice("Excited", 

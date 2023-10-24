@@ -6,7 +6,7 @@ function get_available_actions(person){
 					"Who's gonna carry the boats!",
 					"Working hard makes me hard!",
 					"Pumping Iron!"
-				], {strength: 50, health: 2})
+				], {strength: 50, health: 10})
 		),
 		new Choice("Pray",
 				new ActionOutcome("Thoughts and Prayers", [
