@@ -189,6 +189,17 @@ var scenarios = {
 				new Outcome("Fair Play", "You joined the man to punch the pregnant woman (2v2 combat). She didn't stand a single chance against you.", {holiness: -300, strengh: 10, happiness: 10})),
 		]),
 	],
+	"stage_17": [
+		new Scenario("Dear, Mr. Huyen", "You see a man assaulting a pregnant woman in a small alley at night, he was not armed just casually punching her. What would you do given you have a muscled 17-year old body?", [
+			new RandomChoice("Pick up a fight with the man",[ 
+				new Outcome("Devastated", "Oh, I didn't mention he was 3 times your size? Too bad. Kudo for standing up for the woman tho.", {health: -20, happiness: -20, holiness: 50}),
+				new Outcome("Exhausted Warrior", "It was a long fight, you two exchange blows but no one seems to be winning. You two soon get tired and decided to leave.", {health: -2, happiness: -5, holiness: 50}),
+				new Outcome("Overpowered", "You beat the man to a pulp, thinking the pregnant woman would then be your girlfriend but she said she already has a husband. Goddamit! This happens everytime!", {hapiness: -1, strengh: 20, holiness: 50}),
+				]),
+			new Choice("Make it a 2v2", 
+				new Outcome("Fair Play", "You joined the man to punch the pregnant woman (2v2 combat). She didn't stand a single chance against you.", {holiness: -300, strengh: 10, happiness: 10})),
+		]),
+	],
 	"stage_18": [
 		new Scenario("Important One", "You just finished High School, you are Young and Strong. What would you do, spend the next 5 years studying in college, or start grinding for the rest of your", [
 			new Choice("Baby Milk Formula", 

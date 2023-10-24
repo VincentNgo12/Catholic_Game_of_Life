@@ -34,7 +34,7 @@ var available_events = {
 
 let normal_jobs = [
 	new Outcome("Mc Donalds", "You are now working at Mc Donalds. Hurray, I guess...", 
-			{career: new Career("Mc Donalds Employee", 23000, -50)}),
+			{career: new Career("Mc Donalds Employee", 23000, -30)}),
 	new Outcome("Plumber", "'I hope it was like in the movies...'", 
 			{career: new Career("Pumbler", 37000, 10)}),
 	new Outcome("Construction Workers", "Please, please don't end up on LiveLeaks", 
@@ -43,16 +43,30 @@ let normal_jobs = [
 			{career: new Career("Janitor", 33000, 5)}),
 	new Outcome("Pizza Delivery", "'You have 25 minutes, GO!'", 
 			{career: new Career("Pizza Delivery", 33000, 10)}),
+	new Outcome("Warehouse Worker", "Go easy on your lower back.", 
+			{career: new Career("Warehouse Worker", 30000, 5)}),
+	new Outcome("Security Guard", "Those night shifts are sooo scary...", 
+			{career: new Career("Security Guard", 27000, 10)}),
+	new Outcome("Cashier", "You manage fininacial transactions for big companies!", 
+			{career: new Career("Cashier", 22000, -5)}),
 ]
 
 let college_jobs = [
 	new Outcome("Accountant", "Wow, pretty good job. Counting money n stuff. Definitely worth those 5 years in college!", 
-			{career: new Career("Mc Donalds Employee", 70000, 20)}),
+			{career: new Career("Mc Donalds Employee", 70000, 40)}),
+	new Outcome("Human Resources", "'I got reports that you made a really funny joke yesterday. Wanna share it to me?'", 
+			{career: new Career("Human Resources", 75000, 30)}),
+	new Outcome("Financial Analyst", "Oohh, fancy name. I wonder what you guys do?", 
+			{career: new Career("Financial Analyst", 90000, 30)}),
+	new Outcome("Material Scientist", "You want to believe LK-99 is true...", 
+			{career: new Career("Material Scientist", 100000, 70)}),
 ]
 
 let scholar_jobs = [
-	new Outcome("Doctor", "Wow, pretty good job. Counting money n stuff. Definitely worth those 5 years in college!", 
-			{career: new Career("Mc Donalds Employee", 70000, 20)}),
+	new Outcome("Doctor", "You are literally the top of the food chain, I envy you guys.", 
+			{career: new Career("Doctor", 200000, 200)}),
+	new Outcome("Mechanical Engineer", "You are literally the top of the food chain, I envy you guys.", 
+			{career: new Career("Mechanical Engineer", 200000, 100)}),
 ]
 
 function apply_career(person, stage){
