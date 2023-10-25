@@ -6,14 +6,6 @@ var scenarios = {
 			new Choice("Ignore it", 
 					new Outcome("", "Fair enough..."))
 		]),
-		new Scenario("Toys", "What would be your favortie toy?", [
-			new Choice("Teddy Bear", 
-					new Outcome("Teddy", "Pretty decent choice, you loved it.", {happiness: 5})),
-			new Choice("Barbie Doll", 
-					new Outcome("Barbie", "I am not sure if you are a boy tho...")),
-			new Choice("Wooden Sledge Hammer", 
-					new Outcome("Power...", "You are built different", {strength: 3})),
-		]),
 	],
 	"stage_2": [
 		new Scenario("Diet", "What do you think your parents have been feeding you up to this point?", [
