@@ -240,13 +240,31 @@ var mid_life_scenarios = [
 			new Choice("Nuke The Toilet", 
 				new Outcome("Pure Evil", "You just had Taco Bells and decided to nuke this particular stall beyond repair just because you can. Now no one is fixing anything...", {happiness: 5, holiness: -20})),
 		]),
-		new Scenario("Public Washrooms", "You went to a public washroom and found out that somebody has clogged the toilet with thick tissues.", [
-			new Choice("Choose a different stall", 
-				new Outcome("Common Sense", "You just want to finish your businesses", {happiness: 3})),
-			new Choice("Unclog the toilet", 
-				new Outcome("Considerate Person", "You care about the janitor's feelings so you did his job. Good job!", {happiness: 10, holiness: 20})),
-			new Choice("Nuke The Toilet", 
-				new Outcome("Pure Evil", "You just had Taco Bells and decided to nuke this particular stall beyond repair just because you can. Now no one is fixing anything...", {happiness: 5, holiness: -20})),
+		new Scenario("Moral Problem", "You are driving at night and you see an old woman on the lane you are driving. You can change lane but there is also a small child on the other lane. What will you do in this situation? No worries, no one will be there to witness a thing (except the old woman).", [
+			new Choice("Sacrifice the Old Woman", 
+				new Outcome("You have seen enough...", "You have killed the old woman. Wise choice, the child is too small to report you...", {happiness: -50})),
+			new Choice("Sacrifice the Child", 
+				new Outcome("I'm sorry little one", "You killed the child, devastated. However, the old woman immediately start screaming for help and she might call the police on you.", {happiness: -80, crime: 100})),
+			new Choice("Steer the car to the tree to save both", 
+				new Outcome("Heroic Ending", "You managed to save both souls, but the tree wasn't so forgiving. You died that tragic night as a silent hero. The old woman remembers, the child don't give a damn. Good for you.", {holiness: 5000, health: -2000})),
+			new Choice("Drift sideways and aim for both", 
+				new Outcome("Tokyo Night", "The drift was executed flawlessly. Both the old woman and the child stood no chance against the great momentum of the car. You then sped away, painting the road red.", {holiness: -500, crime: 800})),
+		]),
+		new Scenario("Little Douchebag", "You are standing in a martial art dojo minding your own business and a little child start perform his martial art moves on your leg. What to do?", [
+			new Choice("Tell Morgan (instructor) to handle him", 
+				new Outcome("Beating is Teaching", "You saw Morgan pull the kid to the far side and start smacking the life out of him (John Cena style). You are happy as education is done right", {happiness: 80})),
+			new Choice("Punch the Kid", 
+				new Outcome("Oneshot", "KnockOut!", {happiness: 50, crime: 100, holiness: -50})),
+			new Choice("Punch the Kid and the Mother", 
+				new Outcome("Tough One", "The kid was easy, the Mother... Not so much.", {holiness: -50, health: -10, hapiness: 12, crime: 100})),
+		]),
+		new Scenario("Lost Wallet", "You find a wallet on the street with cash and identification. What's your next move?", [
+			new Choice("Return the Wallet", 
+				new Outcome("Good deed", "You did something right, good job!", {happiness: 30, holiness: 50})),
+			new Choice("keep the Cash", 
+				new Outcome("Mhh..", "Good stuff", {happiness: 30, crime: 50, holiness: -50, wealth: 1000})),
+			new Choice("Find the address and loot his House", 
+				new Outcome("Big Pay!", "This man is quite wealthy, you have benefited alot from this.", {holiness: -100, hapiness: 20, crime: 200, wealth: 50000})),
 		]),
 	]
 
@@ -288,11 +306,11 @@ var criminal_scenarios = [
 			new Choice("No thanks", 
 				new Outcome("Risky", "You walked away but the people kept on looking toward you. Weird...", {happiness: -10})),
 		]),
-		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
-			new Choice("Excited", 
-				new Outcome("Eager Learner", "You're excited to go to school and make new friends.", {happiness: 10, education: 10})),
-			new Choice("Nervous", 
-				new Outcome("Little Worrier", "You're a bit nervous, but it's normal for the first day.", {happiness: -5})),
+		new Scenario("Sir, I'm lost", "A small child approached you to seek help. He was lost and is very vulnerable right now. What would you, a criminal do?", [
+			new Choice("Bring the kid to the nearest office", 
+				new Outcome("I'm changed", "The kid felt more safe around you. But don't forget, you can never change the fact that you are a criminal", {happiness: 50, holiness: 90})),
+			new Choice("Kidnap Him", 
+				new Outcome("Good Prey", "You kidnapped the kid", {happiness: -5})),
 			new Choice("Pumped UP", 
 				new Outcome("Bring on em kids", "Looking for a worthy opponent, huh?", {happiness: 5, strength: 10})),
 		]),
@@ -364,18 +382,18 @@ var late_life_scenarios = [
 function get_related_scenarios(person,stage){
 	let related_scenarios = [];
 	if(person.traits.college && stage<=23){
-		related_scenarios.concat(college_scenarios);
+		related_scenarios = related_scenarios.concat(college_scenarios);
 	}else if(stage <= 60){
-		related_scenarios.concat(mid_life_scenarios);
+		related_scenarios = related_scenarios.concat(mid_life_scenarios);
 	}else if(stage > 60){
-		related_scenarios.concat(late_life_scenarios);
+		related_scenarios = related_scenarios.concat(late_life_scenarios);
 	}
 	
 	// Additional Scnarios
 	if(person.traits.crime >= 1000){
-		related_scenarios.concat(criminal_scenarios);
+		related_scenarios = related_scenarios.concat(criminal_scenarios);
 	}if(person.traits.holiness >= 1000){
-		related_scenarios.concat(catholic_scenarios);
+		related_scenarios = related_scenarios.concat(catholic_scenarios);
 	}
 	
 	return random(related_scenarios);

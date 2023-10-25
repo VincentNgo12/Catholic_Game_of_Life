@@ -121,7 +121,7 @@ class Game{
 				if(effect === "career"){
 					const h4Income  = document.createElement("h4");
 					const h4Satisfaction = document.createElement("h4");
-					h4Satisfaction.style.color = (trait > 0) ? "green" : "red";
+					h4Satisfaction.style.color = (trait.jobSatisfaction > 0) ? "green" : "red";
 					h4Income.textContent = `Income : ${trait.income}$`;
 					h4Satisfaction.textContent = `Satisfaction : ${trait.jobSatisfaction}`;
 					document.getElementById("outcome_effects").appendChild(h4Income);
@@ -143,7 +143,7 @@ class Game{
 	show_player_stats(){
 		// If the player has a job
 		if(this.player.traits.career){
-			document.querySelector("#career").innerHTML = this.player.traits.career.name;
+			document.querySelector("#career").innerHTML = this.player.traits.career.profession;
 		}else if(this.stage <=12){
 			document.querySelector("#career").innerHTML = "Child";
 		}else if(this.player.traits.college && this.stage <= 23){

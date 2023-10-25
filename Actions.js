@@ -34,7 +34,7 @@ function get_available_actions(person){
 					"I've earned more, but at what cost??",
 					"I will be happy once I earn enough, right???",
 					"Those extra hours will pay out, I promise."
-				], {wealth: person.career.income*0.3, hapiness: -100})
+				], {wealth: person.traits.career.income*0.3, happiness: -100})
 		));
 	}
 
