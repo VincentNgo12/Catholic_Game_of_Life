@@ -65,8 +65,12 @@ let college_jobs = [
 let scholar_jobs = [
 	new Outcome("Doctor", "You are literally the top of the food chain, I envy you guys.", 
 			{career: new Career("Doctor", 200000, 200)}),
-	new Outcome("Mechanical Engineer", "You are literally the top of the food chain, I envy you guys.", 
-			{career: new Career("Mechanical Engineer", 200000, 100)}),
+	new Outcome("Mechanical Engineer", "You are nerds fixing stuff, good pay tho.", 
+			{career: new Career("Mechanical Engineer", 140000, 100)}),
+	new Outcome("Software Engineer", "You are overpaid too much for just sitting infront of a screen. What do you guys even do?", 
+			{career: new Career("Software Engineer", 130000, 150)}),
+	new Outcome("Lawyer", "Rumours said lawyers don't go to Heaven, but you are too busy getting paid to even bother.", 
+			{career: new Career("Software Engineer", 200000, 180)}),		
 ]
 
 function apply_career(person, stage){

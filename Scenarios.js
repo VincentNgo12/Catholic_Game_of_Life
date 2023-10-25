@@ -266,6 +266,30 @@ var mid_life_scenarios = [
 			new Choice("Find the address and loot his House", 
 				new Outcome("Big Pay!", "This man is quite wealthy, you have benefited alot from this.", {holiness: -100, hapiness: 20, crime: 200, wealth: 50000})),
 		]),
+		new Scenario("Monke", "You went to the zoo and see a big monkey smiling, show its teeth, and opening his arms toward you. It must be a sign of friendship! What would you do?", [
+			new Choice("Hug the money", 
+				new Outcome("Life lesson", "Turns out, showing teeth is a sign of threat in the animal kingdom. The monkey ended up assaulting you, leaving you on the verge of death. Don't ever do that again.", {happiness: -200, health: -70, holiness: -100})),
+			new Choice("Stay away from it", 
+				new Outcome("Sorry friend", "But I am aware that you have much more muscle mass than I am.", {happiness: -10})),
+			new Choice("Banana", 
+				new Outcome("Monke Treats", "You throw your half-eaten banana at him and he glady devour it. Everyone is happy.", {holiness: 50, hapiness: 30})),
+		]),
+		new Scenario("Strange street", "You were walking in a neighborhood when an Elmo-looking guy approached you. 'You are in the wrong Sesame Street motherforkor!', said Elmo. The dude didn't look armed, what did you do in that situation?", [
+			new Choice("Engage Combat", 
+				new Outcome("Soft stuff", "The guy didn't stand a chance against you but you notice something odd. The dude's body was really soft, much like muppets'. Elmo, was that you?", {happiness: -20, health: -2, holiness: -100, crime: 100})),
+			new Choice("Appologize and walk away", 
+				new Outcome("So weird..", "As you walked away, Elmo guy kept on swearing something in Alphabetical order. 'Sesame Street is not for me'.", {happiness: -10})),
+			new Choice("Order a Drone Strike", 
+				new Outcome("The Pentagon answered", "They started pouring down a heavy strike on the neighborhood. Forget Elmo, Sesame Street was no more...", {holiness: -100, crime: 200, hapiness: 30})),
+		]),
+		new Scenario("High Ground", "You are chilling on the roof of a building and you see a man standing on the edge. He looks very scared, is he going to jump? What do I do?", [
+			new Choice("Snap his neck", 
+				new Outcome("Night night", "You killed him before he got the chance to do so. He will not go to Hell, you Will!", {happiness: 40, holiness: -100, crime: 200})),
+			new Choice("Threaten Him", 
+				new Outcome("'Consider your mother!'", "You said that if he jump, you are going to slaughter his entire family, and his Mother. The man was scared s***less and decided to take the elevator down. The world needs more people like you.", {happiness: 40, holiness: 50})),
+			new Choice("'Do a Flip!'", 
+				new Outcome("Amazing scence", "The stunt was breathtaking, you stand in awe as the man flawlessy execute a backflip 7 or 20 times something, you lost count.", {holiness: -100, crime: 200, hapiness: 30})),
+		]),
 	]
 
 
@@ -310,9 +334,7 @@ var criminal_scenarios = [
 			new Choice("Bring the kid to the nearest office", 
 				new Outcome("I'm changed", "The kid felt more safe around you. But don't forget, you can never change the fact that you are a criminal", {happiness: 50, holiness: 90})),
 			new Choice("Kidnap Him", 
-				new Outcome("Good Prey", "You kidnapped the kid", {happiness: -5})),
-			new Choice("Pumped UP", 
-				new Outcome("Bring on em kids", "Looking for a worthy opponent, huh?", {happiness: 5, strength: 10})),
+				new Outcome("Wholesome", "You kidnapped the kid, hoping to receive a compensation from his parents", {crime: 100, holiness: -100})),
 		]),
 		new Scenario("Favorite Toy", "What's your favorite toy at age 4?", [
 			new Choice("Building Blocks", 
@@ -352,13 +374,11 @@ var catholic_scenarios = [
 
 
 var late_life_scenarios = [
-		new Scenario("It's that time of age.", "What did you want to become when you were 4?", [
-			new Choice("Superheroes", 
-				new Outcome("Heroic!!", "You feel like a hero.", {happiness: 5, strength: 10})),
-			new Choice("Dinosaurs", 
-				new Outcome("Beast!!", "Your favortie was the Spinosaurus, don't deny that", {happiness: 10, strengh: 10})),
-			new Choice("Dogs", 
-				new Outcome("You mean wolfs???", "Please don't be a furry...", {happiness: 5})),
+		new Scenario("Everywhere at the end of time.", "You are getting old, what is something you would like to make sure before Dementia kick in?", [
+			new Choice("Express love with family", 
+				new Outcome("Before it's too late", "You tell every single loved one of your that you love them. They all have the same feeling.", {happiness: 50, holiness: 10})),
+			new Choice("Erase the browsing history", 
+				new Outcome("Burn them down", "You can leave anything on this Earth but the browsing history", {happiness: 30})),
 		]),
 		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
 			new Choice("Excited", 
