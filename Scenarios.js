@@ -275,39 +275,55 @@ var mid_life_scenarios = [
 		]),
 		new Scenario("Mother Nature is calling", "You have a huge urge to pee while in the middle of the road. What should you do?", [
 			new Choice("Work with an Aquafina bottle", 
-				new Outcome("Night night", "You killed him before he got the chance to do so. He will not go to Hell, you Will!", {killstreak: 1, happiness: 40, holiness: -100, crime: 200})),
-			new Choice("Threaten Him", 
-				new Outcome("'Consider your mother!'", "You said that if he jump, you are going to slaughter his entire family, and his Mother. The man was scared s***less and decided to take the elevator down. The world needs more people like you.", {happiness: 40, holiness: 50})),
-			new Choice("'Do a Flip!'", 
-				new Outcome("Amazing scence", "The stunt was breathtaking, you stand in awe as the man flawlessy execute a backflip 7 or 20 times something, you lost count.", {holiness: -100, crime: 200, happiness: 30})),
+				new Outcome("Tea Time!", "The bottle fits perfectly, you felt relief with this solution.", {happiness: 40})),
+			new Choice("Hold it in", 
+				new Outcome("Overload", "Your bladder exploded, leaving you with a mess and a huge hospital bill.", {happiness: -40, health: -40, wealth: -100000})),
+			new Choice("Return what's nature's", 
+				new Outcome("Caught Yellow-handed", "An officer caught you doing this dirty act and charge you accordingly.", {holiness: -100, crime: 80, happiness: -30, wealth: -5000})),
+		]),
+		new Scenario("Chicken Man", "You met this old man while you were starving. He kept on bragging and tell you something about his enormous chicken. He the invited you to his place so he can 'fulfill you'. You are really hungry and this offer seems perfectly suit your needs. What was your answer? ", [
+			new Choice("Sure thing, let's go old man", 
+				new Outcome("Farm Life", "Turns out, the man is a farmer and his chickens are indeed certainly huge. He fed you with a big chicken dinner meal and even gave you a dozen of farm eggs. You are not fulfilled", {happiness: 50, holiness: 50})),
+			new Choice("No, I'm good. THanks", 
+				new Outcome("Emptiness", "You denied the man's offer and ended with no food that night.", {happiness: -80})),
 		]),
 	]
 
 
 var college_scenarios = [
-		new Scenario("NSFW", "What did you want to become when you were 4?", [
-			new Choice("Superheroes", 
-				new Outcome("Heroic!!", "You feel like a hero.", {happiness: 5, strength: 10})),
-			new Choice("Dinosaurs", 
-				new Outcome("Beast!!", "Your favortie was the Spinosaurus, don't deny that", {happiness: 10, strengh: 10})),
-			new Choice("Dogs", 
-				new Outcome("You mean wolfs???", "Please don't be a furry...", {happiness: 5})),
+		new Scenario("", "While working on a physic assignment. A classmate approached and pointed out that you have violated some of the laws in your work. How do you react?", [
+			new Choice("Accept the suggestion and fix your work.", 
+				new Outcome("Effective learner", "Learning from fellow classmates is an effective way to study.", {happiness: 25, education: 80})),
+			new Choice("'How about I violate you instead?'", 
+				new Outcome("Toxic environment", "You are certain that classmate won't dare to bother you and your work again.", {happiness: 30, holiness: -50})),
 		]),
-		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
-			new Choice("Excited", 
-				new Outcome("Eager Learner", "You're excited to go to school and make new friends.", {happiness: 10, education: 10})),
-			new Choice("Nervous", 
-				new Outcome("Little Worrier", "You're a bit nervous, but it's normal for the first day.", {happiness: -5})),
-			new Choice("Pumped UP", 
-				new Outcome("Bring on em kids", "Looking for a worthy opponent, huh?", {happiness: 5, strength: 10})),
+		new Scenario("Educational Opportunity", "You are invited to an educational theme party with alcohols, drugs and firearms. Do you accpet.", [
+			new Choice("Absolutely!", 
+				new Outcome("Great lesson learnt", "You attend the party and consumed a lot of alcohol and uplifting substances. You felt you were reborn again.", {happiness: 120, education: -30, holiness: -100, health: -10})),
+			new Choice("Nerd out and study", 
+				new Outcome("Is it worth it?", "You completed all of your deadlines but didn't sense any feeling of accomplishment or fulfillment.", {happiness: -50, education: 300})),
 		]),
-		new Scenario("Favorite Toy", "What's your favorite toy at age 4?", [
-			new Choice("Building Blocks", 
+		new Scenario("Having a hard time", "Your professor notices that you are struggling with a certain topic and he asked if you can stay after class so he can help.", [
+			new Choice("", 
 				new Outcome("Future Engineer", "You love playing with building blocks and building amazing structures.", {happiness: 3, education: 5})),
 			new Choice("Dolls", 
 				new Outcome("Doll Collector", "You adore playing with dolls and creating stories with them.", {happiness: 10})),
 			new Choice("Dad's Glock 17", 
 				new Outcome("Whoah Woah..", "Careful over there buddy!", {happiness: 5, holiness: -10, crime: 4})),
+		]),
+		new Scenario("Chemist", "Your professor notices that you are struggling with a certain topic and he asked if you can stay after class so he can help.", [
+			new Choice("", 
+				new Outcome("Future Engineer", "You love playing with building blocks and building amazing structures.", {happiness: 3, education: 5})),
+			new Choice("Dolls", 
+				new Outcome("Doll Collector", "You adore playing with dolls and creating stories with them.", {happiness: 10})),
+			new Choice("Dad's Glock 17", 
+				new Outcome("Whoah Woah..", "Careful over there buddy!", {happiness: 5, holiness: -10, crime: 4})),
+		]),
+		new Scenario("Who dropped the soap?", "You are in a public shower washing yourself for the next class. You then accidentally dropped your brand new soap infront of a few other people. Remember, you are only a college student, this bar of soap means alot to you financially...", [
+			new Choice("Pick up the soap", 
+				new Outcome("Risky Maneuver", "You slowly crouch down near the soap, trying your best to avoid exposing your vulnerable parts to the others around you. You stand straight up immediately the moment you get a grip of the soap bar. *Soap successfully recovered*", {happiness: 50})),
+			new Choice("Watch as the soap slip away from you on the floor.", 
+				new Outcome("I will never recover financially from this...", "At least no one will see your tears in the shower at this moment...", {happiness: -50})),
 		]),
 	]
 

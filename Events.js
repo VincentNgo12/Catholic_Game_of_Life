@@ -75,7 +75,7 @@ let scholar_jobs = [
 
 function apply_career(person, stage){
 	let possible_jobs;
-	if(person.traits.college && person.traits.education >= 2000){
+	if(person.traits.college && person.traits.education >= 1500){
 		possible_jobs = scholar_jobs;
 	}else if(person.traits.college){
 		possible_jobs = college_jobs;

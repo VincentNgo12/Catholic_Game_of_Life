@@ -47,7 +47,7 @@ function get_available_actions(person){
 						"That Bachelor's degree can't guaranteed you a good job, only you can.",
 						"Do what's right, not what's easy.",
 						"I just need to be a virgin for a few more years..."
-					], {education: 100, happiness: -50})
+					], {education: 200, happiness: -50})
 			));
 	}
 	
