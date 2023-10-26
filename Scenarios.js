@@ -170,8 +170,6 @@ var scenarios = {
 					new Outcome("Understandable", "Have a good day.", {happiness: 4})),
 			new Choice("Mr. Ortman newest assignments", 
 					new Outcome("Stressful Workloads", "You don't blame him, he has good reasons to be traumatized by those deadlines.", {happiness: 4})),
-			new Choice("Morgan's Basement", 
-					new Outcome("Stressful Workloads", "You don't blame him, he has good reasons to be traumatized by those deadlines.", {happiness: 20})),
 		]),
 	],
 	"stage_17": [
@@ -275,8 +273,8 @@ var mid_life_scenarios = [
 			new Choice("'Do a Flip!'", 
 				new Outcome("Amazing scence", "The stunt was breathtaking, you stand in awe as the man flawlessy execute a backflip 7 or 20 times something, you lost count.", {holiness: -100, crime: 200, happiness: 30})),
 		]),
-		new Scenario("Birthday Party!", "You are chilling on the roof of a building and you see a man standing on the edge. He looks very scared, is he going to jump? What do I do?", [
-			new Choice("Snap his neck", 
+		new Scenario("Mother Nature is calling", "You have a huge urge to pee while in the middle of the road. What should you do?", [
+			new Choice("Work with an Aquafina bottle", 
 				new Outcome("Night night", "You killed him before he got the chance to do so. He will not go to Hell, you Will!", {killstreak: 1, happiness: 40, holiness: -100, crime: 200})),
 			new Choice("Threaten Him", 
 				new Outcome("'Consider your mother!'", "You said that if he jump, you are going to slaughter his entire family, and his Mother. The man was scared s***less and decided to take the elevator down. The world needs more people like you.", {happiness: 40, holiness: 50})),
@@ -393,11 +391,11 @@ var late_life_scenarios = [
 
 
 var career_scenarios = [
-		new Scenario("NSFW", "You are getting old, what is something you would like to make sure before Dementia kick in?", [
-			new Choice("Express love with family", 
-				new Outcome("Before it's too late", "You tell every single loved one of your that you love them. They all have the same feeling.", {happiness: 50, holiness: 10})),
-			new Choice("Erase the browsing history", 
-				new Outcome("Burn them down", "You can leave anything on this Earth but the browsing history", {happiness: 30})),
+		new Scenario("NSFW", "Your co-worker ask if you want to see him do some NSFW (not safe for work) stuff. What do you answer?", [
+			new Choice("Sure!", 
+				new Outcome("Literally", "You expected him to show you something seductive, but instead he jumped out of the building's window which is not safe for work. Disappointed...", {happiness: -20})),
+			new Choice("Don't make me call HR", 
+				new Outcome("Unhealthy colleague", "Your co-worker was very sad about your behaviour, he expected something much more friendly from you.", {happiness: -30})),
 		]),
 	]
 
