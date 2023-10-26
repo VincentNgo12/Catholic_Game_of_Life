@@ -53,7 +53,7 @@ let normal_jobs = [
 
 let college_jobs = [
 	new Outcome("Accountant", "Wow, pretty good job. Counting money n stuff. Definitely worth those 5 years in college!", 
-			{career: new Career("Mc Donalds Employee", 70000, 40)}),
+			{career: new Career("Accountant", 70000, 40)}),
 	new Outcome("Human Resources", "'I got reports that you made a really funny joke yesterday. Wanna share it to me?'", 
 			{career: new Career("Human Resources", 75000, 30)}),
 	new Outcome("Financial Analyst", "Oohh, fancy name. I wonder what you guys do?", 

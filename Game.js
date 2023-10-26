@@ -163,7 +163,7 @@ class Game{
 		document.querySelector("#crime").innerHTML = this.player.traits.crime;
 		document.querySelector("#income").innerHTML = (this.player.traits.career)? this.player.traits.career.income : 0;
 		document.querySelector("#annual_cost").innerHTML = this.player.traits.annual_cost;
-		document.querySelector("#satisfaction").innerHTML = (this.player.traits.career)? this.player.traits.career.satisfaction : 0;
+		document.querySelector("#satisfaction").innerHTML = (this.player.traits.career)? this.player.traits.career.jobSatisfaction : 0;
 		document.querySelector("#stats_modal").style.display = "block";
 		return;
 	}
