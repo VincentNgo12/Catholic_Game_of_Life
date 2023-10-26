@@ -48,13 +48,13 @@ class Game{
 		}else if(this.stage === 18 || (this.stage === 19 && !this.player.traits.college)){
 			this.event_index = EVENT_INDEX;
 			return;
-		}else if(this.stage === 23 || this.stage === 36 || this.stage === 50){
+		}else if(this.stage === 23 || this.stage === 38 || this.stage === 50){
 			this.event_index = EVENT_INDEX;
 			return;
 		}else if(this.stage === 30){ //Marriage
 			this.event_index = EVENT_INDEX;
 			return;
-		}else if(this.stage === 35 && this.player.traits.married){//Have kids
+		}else if(this.stage === 36 && this.player.traits.married){//Have kids
 			this.event_index = EVENT_INDEX;
 			return;
 		}else{
@@ -82,13 +82,13 @@ class Game{
 		}else if(this.event_index === EVENT_INDEX && this.stage === 19 && !this.player.traits.college){
 			return apply_career(this.player, this.stage);
 			// CAREER DAYS!
-		}else if(this.event_index === EVENT_INDEX && (this.stage === 23 || this.stage === 36 || this.stage === 50)){
+		}else if(this.event_index === EVENT_INDEX && (this.stage === 23 || this.stage === 38 || this.stage === 50)){
 			return apply_career(this.player, this.stage);
 			// Marriage!
 		}else if(this.event_index === EVENT_INDEX && this.stage === 30){
 			return available_events["marriage"];
 			// have kids
-		}else if(this.event_index === EVENT_INDEX && this.stage === 35){
+		}else if(this.event_index === EVENT_INDEX && this.stage === 36){
 			return available_events["have_kids"];
 		}else if(this.event_index === SCENARIO_INDEX){
 			return get_related_scenarios(this.player, this.stage);
@@ -154,6 +154,7 @@ class Game{
 			document.querySelector("#career").innerHTML = "Unemployed";
 		}
 		document.querySelector("#health").innerHTML = this.player.traits.health;
+		document.querySelector("#kills").innerHTML = this.player.traits.killstreak;
 		document.querySelector("#strength").innerHTML = this.player.traits.strength;
 		document.querySelector("#happiness").innerHTML = this.player.traits.happiness;
 		document.querySelector("#holiness").innerHTML = this.player.traits.holiness;
@@ -229,7 +230,7 @@ class Game{
 			fadeIn += 5;
 			await new Promise(resolve => setTimeout(resolve, 2000 / frameRate()));
 		}
-		this.stage++;
+		this.stage += (this.stage<24) ? 1 : 2;
 		let stage = (this.game_ended()) ? "Game Over" : this.stage;
 		while(textFadeIn<255){
 			fill(0);
@@ -273,6 +274,7 @@ class Game{
 		document.querySelector("#ending_wealth").innerHTML = this.player.traits.wealth;
 		document.querySelector("#ending_education").innerHTML = this.player.traits.education;
 		document.querySelector("#ending_crime").innerHTML = this.player.traits.crime;
+		document.querySelector("#ending_kills").innerHTML = this.player.traits.killstreak;
 		document.querySelector("#gameEndingModal").style.display = "block";
 		return;
 	}

@@ -5,9 +5,9 @@ var available_events = {
 	]),
 
 	"college" : new Event("College", "You have just finished High School, you are strong and young. Now you have to make an important decision in you life between studying in college for the next 5 years or start working from now on. What would it be?", [
-								new Choice("I guess I will study further... I dunno.",
+								new Choice("Yes, I will study harder in college",
 										new Outcome("A New Scholar!", "Welcome to post-secondary studies! You will study all mankind's knowledge here. It will be quite a strain on your kidney tho...", {wealth: -50000, college: true})),
-								new Choice("Nah, I'm good.",
+								new Choice("Nope",
 										new Outcome("Where your life starts...", "Alright, you are an adult now. Your life choices diverge from here.", {})),
 							]),
 	

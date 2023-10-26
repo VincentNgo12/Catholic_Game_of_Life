@@ -36,14 +36,6 @@ var scenarios = {
   ]),
 	],
 	"stage_4": [
-		new Scenario("It's that time of age.", "What did you want to become when you were 4?", [
-			new Choice("Superheroes", 
-				new Outcome("Heroic!!", "You feel like a hero.", {happiness: 5, strength: 10})),
-			new Choice("Dinosaurs", 
-				new Outcome("Beast!!", "Your favortie was the Spinosaurus, don't deny that", {happiness: 10, strengh: 10})),
-			new Choice("Dogs", 
-				new Outcome("You mean wolfs???", "Please don't be a furry...", {happiness: 5})),
-		]),
 		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
 			new Choice("Excited", 
 				new Outcome("Eager Learner", "You're excited to go to school and make new friends.", {happiness: 10, education: 10})),
@@ -68,15 +60,15 @@ var scenarios = {
 			new Choice("Tug of War", 
 				new Outcome("Buff kids", "You were already feeling them muscles as a kid.", {strength: 7})),
 			new Choice("MMA", 
-				new Outcome("Oopsie...", "You punched Jeff in the back of his head and he has been playing dead for 17 hours.", {happiness: -30, holiness: -20, crime: 10, strength: 10})),
+				new Outcome("Oopsie...", "You punched Jeff in the back of his head and he has been playing dead for 17 hours.", {killstreak: 1, happiness: -30, holiness: -20, crime: 10, strength: 10})),
 		]),
 	],
 	"stage_6": [
 		new Scenario("*Honey, we need more milk.*", "In an evening, your Dad was leaving to get some milk, and smokes... ", [
 			new RandomChoice("Daddy, bring me some toys too please.",[ 
-				new Outcome("Don't you love me?", "It's been 3 months and your old man hasn't come home yet", {hapiness: -150}),
-				new Outcome("Bro forgot them toys...", "Your dad returned with some milk but no toys...", {hapiness: -15}),
-				new Outcome("I LOVE YOU OLD MAN", "He returned with milk and lots of toys!!! He loves you.", {hapiness: 80}),
+				new Outcome("Don't you love me?", "It's been 3 months and your old man hasn't come home yet", {happiness: -150}),
+				new Outcome("Bro forgot them toys...", "Your dad returned with some milk but no toys...", {happiness: -15}),
+				new Outcome("I LOVE YOU OLD MAN", "He returned with milk and lots of toys!!! He loves you.", {happiness: 80}),
 				]),
 		]),
 	],
@@ -123,7 +115,7 @@ var scenarios = {
 			new Choice("Dad's Laptop Browsing History", 
 				new Outcome("Unexpected Ending", "You stumble upon your father's browsing history, only to find out he was just trying to figure out how to install Minecraft for you a few years ago. The truth is more innocent than you thought.", {happiness: 15})),
 			new Choice("An Old Camcorder in Mom's bedroom", 
-				new Outcome("Dear God...", "I wouldn't watch it if I were you.", {hapiness: -25})),
+				new Outcome("Dear God...", "I wouldn't watch it if I were you.", {happiness: -25})),
 		]),
 	],
 	"stage_11": [
@@ -131,9 +123,9 @@ var scenarios = {
 			new Choice("Leave the Poor Guy alone", 
 				new Outcome("Fair enough...", "*You are right, this is not what Catholic classes have been teaching us.*", {holiness: 10})),
 			new Choice("Perform a microsurgery", 
-				new Outcome("Little Surgoens", "You and your friends did a small surgery on the dude, removing all his senses, and leaving him with only a pure Gateway to The Mind.", {happiness: 15, holiness: -200, crime: 100})),
+				new Outcome("Little Surgoens", "You and your friends did a small surgery on the dude, removing all his senses, and leaving him with only a pure Gateway to The Mind.", {killstreak: 1, happiness: 15, holiness: -200, crime: 100})),
 			new Choice("Loot him", 
-				new Outcome("Hidden treasures", "Wow, this guy is rich!", {hapiness: 10, holiness: -100, crime: 10, wealth: 20})),
+				new Outcome("Hidden treasures", "Wow, this guy is rich!", {happiness: 10, holiness: -100, crime: 10, wealth: 20})),
 		]),
 	],
 	"stage_12": [
@@ -171,14 +163,15 @@ var scenarios = {
 		]),
 	],
 	"stage_16": [
-		new Scenario("Time to Shine", "You see a man assaulting a pregnant woman in a small alley at night, he was not armed just casually punching her. What would you do given you have a muscled 16-year old body?", [
-			new RandomChoice("Pick up a fight with the man",[ 
-				new Outcome("Devastated", "Oh, I didn't mention he was 3 times your size? Too bad. Kudo for standing up for the woman tho.", {health: -20, happiness: -20, holiness: 50}),
-				new Outcome("Exhausted Warrior", "It was a long fight, you two exchange blows but no one seems to be winning. You two soon get tired and decided to leave.", {health: -2, happiness: -5, holiness: 50}),
-				new Outcome("Overpowered", "You beat the man to a pulp, thinking the pregnant woman would then be your girlfriend but she said she already has a husband. Goddamit! This happens everytime!", {hapiness: -1, strengh: 20, holiness: 50}),
-				]),
-			new Choice("Make it a 2v2", 
-				new Outcome("Fair Play", "You joined the man to punch the pregnant woman (2v2 combat). She didn't stand a single chance against you.", {holiness: -300, strengh: 10, happiness: 10})),
+		new Scenario("What's the matter?", "You saw a man running from a room, panicking and terrified. You grabeb him and asked calmly - 'What did you see?'. What did he answer?", [
+			new Choice("Morgan's Browsing History", 
+					new Outcome("Poor guy...", "Those materials would traumatize him for life. I wouldn't want to be him...", {happiness: -4, holiness: -3})),
+			new Choice("A spider", 
+					new Outcome("Understandable", "Have a good day.", {happiness: 4})),
+			new Choice("Mr. Ortman newest assignments", 
+					new Outcome("Stressful Workloads", "You don't blame him, he has good reasons to be traumatized by those deadlines.", {happiness: 4})),
+			new Choice("Morgan's Basement", 
+					new Outcome("Stressful Workloads", "You don't blame him, he has good reasons to be traumatized by those deadlines.", {happiness: 20})),
 		]),
 	],
 	"stage_17": [
@@ -186,20 +179,20 @@ var scenarios = {
 			new RandomChoice("Pick up a fight with the man",[ 
 				new Outcome("Devastated", "Oh, I didn't mention he was 3 times your size? Too bad. Kudo for standing up for the woman tho.", {health: -20, happiness: -20, holiness: 50}),
 				new Outcome("Exhausted Warrior", "It was a long fight, you two exchange blows but no one seems to be winning. You two soon get tired and decided to leave.", {health: -2, happiness: -5, holiness: 50}),
-				new Outcome("Overpowered", "You beat the man to a pulp, thinking the pregnant woman would then be your girlfriend but she said she already has a husband. Goddamit! This happens everytime!", {hapiness: -1, strengh: 20, holiness: 50}),
+				new Outcome("Overpowered", "You beat the man to a pulp, thinking the pregnant woman would then be your girlfriend but she said she already has a husband. Goddamit! This happens everytime!", {happiness: -1, strengh: 20, holiness: 50}),
 				]),
 			new Choice("Make it a 2v2", 
 				new Outcome("Fair Play", "You joined the man to punch the pregnant woman (2v2 combat). She didn't stand a single chance against you.", {holiness: -300, strengh: 10, happiness: 10})),
 		]),
 	],
 	"stage_18": [
-		new Scenario("Important One", "You just finished High School, you are Young and Strong. What would you do, spend the next 5 years studying in college, or start grinding for the rest of your", [
-			new Choice("Baby Milk Formula", 
-					new Outcome("Uhmm...", "Yummy... Adictive...", {health: 2, happiness: 2})),
-			new Choice("Baby Soup", 
-					new Outcome("I'll take what I have", "A decent meal for a day.", {health: 1, happiness: 1})),
-			new Choice("Dad's Protein Powder", 
-					new Outcome("A Gymer is Born...", "Old man mistake his powder with the baby formula...", {health: -5, strength: 5}))
+		new Scenario("Birthday Party!", "You are having fun preparing a cake to celebrate the birthdate of Morgan's girlfriend until you sense something is off about the candles. How many candles were on the cake?", [
+			new Choice("3", 
+					new Outcome("Oh God...", "Should I call the police?", {happiness: -40, holiness: -30})),
+			new Choice("80", 
+					new Outcome("Did I count that right?", "I recall my grandmother mentioning her new boyfriend...", {happiness: -40})),
+			new Choice("25", 
+					new Outcome("Hee Hee", "Lucky Fellow!", {happiness: 20})),
 		]),
 	]
 }
@@ -230,17 +223,17 @@ var mid_life_scenarios = [
 			new Choice("Unclog the toilet", 
 				new Outcome("Considerate Person", "You care about the janitor's feelings so you did his job. Good job!", {happiness: 10, holiness: 20})),
 			new Choice("Nuke The Toilet", 
-				new Outcome("Pure Evil", "You just had Taco Bells and decided to nuke this particular stall beyond repair just because you can. Now no one is fixing anything...", {happiness: 5, holiness: -20})),
+				new Outcome("Pure Evil", "You just had Taco Bells and decided to nuke this particular stall beyond repair just because you can. Now no one is fixing anything...", {killstreak: 1, happiness: 5, holiness: -20})),
 		]),
 		new Scenario("Moral Problem", "You are driving at night and you see an old woman on the lane you are driving. You can change lane but there is also a small child on the other lane. What will you do in this situation? No worries, no one will be there to witness a thing (except the old woman).", [
 			new Choice("Sacrifice the Old Woman", 
-				new Outcome("You have seen enough...", "You have killed the old woman. Wise choice, the child is too small to report you...", {happiness: -50})),
+				new Outcome("You have seen enough...", "You have killed the old woman. Wise choice, the child is too small to report you...", {killstreak: 1, happiness: -50})),
 			new Choice("Sacrifice the Child", 
-				new Outcome("I'm sorry little one", "You killed the child, devastated. However, the old woman immediately start screaming for help and she might call the police on you.", {happiness: -80, crime: 100})),
+				new Outcome("I'm sorry little one", "You killed the child, devastated. However, the old woman immediately start screaming for help and she might call the police on you.", {killstreak: 1, happiness: -80, crime: 100})),
 			new Choice("Steer the car to the tree to save both", 
 				new Outcome("Heroic Ending", "You managed to save both souls, but the tree wasn't so forgiving. You died that tragic night as a silent hero. The old woman remembers, the child don't give a damn. Good for you.", {holiness: 5000, health: -2000})),
 			new Choice("Drift sideways and aim for both", 
-				new Outcome("Tokyo Night", "The drift was executed flawlessly. Both the old woman and the child stood no chance against the great momentum of the car. You then sped away, painting the road red.", {holiness: -500, crime: 800})),
+				new Outcome("Tokyo Night", "The drift was executed flawlessly. Both the old woman and the child stood no chance against the great momentum of the car. You then sped away, painting the road red.", {killstreak: 2, holiness: -500, crime: 800})),
 		]),
 		new Scenario("Little Douchebag", "You are standing in a martial art dojo minding your own business and a little child start perform his martial art moves on your leg. What to do?", [
 			new Choice("Tell Morgan (instructor) to handle him", 
@@ -248,7 +241,7 @@ var mid_life_scenarios = [
 			new Choice("Punch the Kid", 
 				new Outcome("Oneshot", "KnockOut!", {happiness: 50, crime: 100, holiness: -50})),
 			new Choice("Punch the Kid and the Mother", 
-				new Outcome("Tough One", "The kid was easy, the Mother... Not so much.", {holiness: -50, health: -10, hapiness: 12, crime: 100})),
+				new Outcome("Tough One", "The kid was easy, the Mother... Not so much.", {holiness: -50, health: -10, happiness: 12, crime: 100})),
 		]),
 		new Scenario("Lost Wallet", "You find a wallet on the street with cash and identification. What's your next move?", [
 			new Choice("Return the Wallet", 
@@ -256,7 +249,7 @@ var mid_life_scenarios = [
 			new Choice("keep the Cash", 
 				new Outcome("Mhh..", "Good stuff", {happiness: 30, crime: 50, holiness: -50, wealth: 1000})),
 			new Choice("Find the address and loot his House", 
-				new Outcome("Big Pay!", "This man is quite wealthy, you have benefited alot from this.", {holiness: -100, hapiness: 20, crime: 200, wealth: 50000})),
+				new Outcome("Big Pay!", "This man is quite wealthy, you have benefited alot from this.", {holiness: -100, happiness: 20, crime: 200, wealth: 50000})),
 		]),
 		new Scenario("Monke", "You went to the zoo and see a big monkey smiling, show its teeth, and opening his arms toward you. It must be a sign of friendship! What would you do?", [
 			new Choice("Hug the money", 
@@ -264,29 +257,37 @@ var mid_life_scenarios = [
 			new Choice("Stay away from it", 
 				new Outcome("Sorry friend", "But I am aware that you have much more muscle mass than I am.", {happiness: -10})),
 			new Choice("Banana", 
-				new Outcome("Monke Treats", "You throw your half-eaten banana at him and he glady devour it. Everyone is happy.", {holiness: 50, hapiness: 30})),
+				new Outcome("Monke Treats", "You throw your half-eaten banana at him and he glady devour it. Everyone is happy.", {holiness: 50, happiness: 30})),
 		]),
 		new Scenario("Strange street", "You were walking in a neighborhood when an Elmo-looking guy approached you. 'You are in the wrong Sesame Street motherforkor!', said Elmo. The dude didn't look armed, what did you do in that situation?", [
 			new Choice("Engage Combat", 
-				new Outcome("Soft stuff", "The guy didn't stand a chance against you but you notice something odd. The dude's body was really soft, much like muppets'. Elmo, was that you?", {happiness: -20, health: -2, holiness: -100, crime: 100})),
+				new Outcome("Soft stuff", "The guy didn't stand a chance against you but you notice something odd. The dude's body was really soft, much like muppets'. Elmo, was that you?", {killstreak: 1, happiness: -20, health: -2, holiness: -100, crime: 100})),
 			new Choice("Appologize and walk away", 
 				new Outcome("So weird..", "As you walked away, Elmo guy kept on swearing something in Alphabetical order. 'Sesame Street is not for me'.", {happiness: -10})),
 			new Choice("Order a Drone Strike", 
-				new Outcome("The Pentagon answered", "They started pouring down a heavy strike on the neighborhood. Forget Elmo, Sesame Street was no more...", {holiness: -100, crime: 200, hapiness: 30})),
+				new Outcome("The Pentagon answered", "They started pouring down a heavy strike on the neighborhood. Forget Elmo, Sesame Street was no more...", {killstreak: 157, holiness: -300, crime: 200, happiness: 30})),
 		]),
 		new Scenario("High Ground", "You are chilling on the roof of a building and you see a man standing on the edge. He looks very scared, is he going to jump? What do I do?", [
 			new Choice("Snap his neck", 
-				new Outcome("Night night", "You killed him before he got the chance to do so. He will not go to Hell, you Will!", {happiness: 40, holiness: -100, crime: 200})),
+				new Outcome("Night night", "You killed him before he got the chance to do so. He will not go to Hell, you Will!", {killstreak: 1, happiness: 40, holiness: -100, crime: 200})),
 			new Choice("Threaten Him", 
 				new Outcome("'Consider your mother!'", "You said that if he jump, you are going to slaughter his entire family, and his Mother. The man was scared s***less and decided to take the elevator down. The world needs more people like you.", {happiness: 40, holiness: 50})),
 			new Choice("'Do a Flip!'", 
-				new Outcome("Amazing scence", "The stunt was breathtaking, you stand in awe as the man flawlessy execute a backflip 7 or 20 times something, you lost count.", {holiness: -100, crime: 200, hapiness: 30})),
+				new Outcome("Amazing scence", "The stunt was breathtaking, you stand in awe as the man flawlessy execute a backflip 7 or 20 times something, you lost count.", {holiness: -100, crime: 200, happiness: 30})),
+		]),
+		new Scenario("Birthday Party!", "You are chilling on the roof of a building and you see a man standing on the edge. He looks very scared, is he going to jump? What do I do?", [
+			new Choice("Snap his neck", 
+				new Outcome("Night night", "You killed him before he got the chance to do so. He will not go to Hell, you Will!", {killstreak: 1, happiness: 40, holiness: -100, crime: 200})),
+			new Choice("Threaten Him", 
+				new Outcome("'Consider your mother!'", "You said that if he jump, you are going to slaughter his entire family, and his Mother. The man was scared s***less and decided to take the elevator down. The world needs more people like you.", {happiness: 40, holiness: 50})),
+			new Choice("'Do a Flip!'", 
+				new Outcome("Amazing scence", "The stunt was breathtaking, you stand in awe as the man flawlessy execute a backflip 7 or 20 times something, you lost count.", {holiness: -100, crime: 200, happiness: 30})),
 		]),
 	]
 
 
 var college_scenarios = [
-		new Scenario("It's that time of age.", "What did you want to become when you were 4?", [
+		new Scenario("NSFW", "What did you want to become when you were 4?", [
 			new Choice("Superheroes", 
 				new Outcome("Heroic!!", "You feel like a hero.", {happiness: 5, strength: 10})),
 			new Choice("Dinosaurs", 
@@ -328,7 +329,7 @@ var criminal_scenarios = [
 			new Choice("Kidnap Him", 
 				new Outcome("Wholesome", "You kidnapped the kid, hoping to receive a compensation from his parents", {crime: 100, holiness: -100})),
 		]),
-		new Scenario("Favorite Toy", "What's your favorite toy at age 4?", [
+		new Scenario("Good looking toys", "What's your favorite toy at age 4?", [
 			new Choice("Building Blocks", 
 				new Outcome("Future Engineer", "You love playing with building blocks and building amazing structures.", {happiness: 3, education: 5})),
 			new Choice("Dolls", 
@@ -391,6 +392,16 @@ var late_life_scenarios = [
 	]
 
 
+var career_scenarios = [
+		new Scenario("NSFW", "You are getting old, what is something you would like to make sure before Dementia kick in?", [
+			new Choice("Express love with family", 
+				new Outcome("Before it's too late", "You tell every single loved one of your that you love them. They all have the same feeling.", {happiness: 50, holiness: 10})),
+			new Choice("Erase the browsing history", 
+				new Outcome("Burn them down", "You can leave anything on this Earth but the browsing history", {happiness: 30})),
+		]),
+	]
+
+
 function get_related_scenarios(person,stage){
 	let related_scenarios = [];
 	if(person.traits.college && stage<=23){
@@ -406,6 +417,8 @@ function get_related_scenarios(person,stage){
 		related_scenarios = related_scenarios.concat(criminal_scenarios);
 	}if(person.traits.holiness >= 1000){
 		related_scenarios = related_scenarios.concat(catholic_scenarios);
+	}if(person.traits.career){
+		related_scenarios = related_scenarios.concat(career_scenarios);
 	}
 	
 	return random(related_scenarios);

@@ -12,10 +12,11 @@ class Person{
 			strength : round(random(5,20)),
 			happiness : round(random(70,100)),
 			annual_cost : 0,
-			wealth : random([0,0,0,0,200000]),
+			wealth : 0,
 			education : 0,
 			holiness : 0,
 			crime : 0,
+			killstreak : 0,
 		}
 	} 
 	
