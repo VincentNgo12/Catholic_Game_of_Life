@@ -101,6 +101,13 @@ class Game{
 		modal.style.display = "block";
 		document.getElementById("scenario_name").innerHTML = `${this.current_scenario.name}`;
 		document.getElementById("scenario_description").innerHTML = `${this.current_scenario.description}`;
+		// Image
+		if(this.current_scenario.image){
+			document.getElementById("scenario_image").src = this.current_scenario.image;
+			document.getElementById("scenario_image").style.display = "block";
+		} else{
+			document.getElementById("scenario_image").style.display = "none";
+		}
 		this.display_choices(this.current_choices);
 	}
 	

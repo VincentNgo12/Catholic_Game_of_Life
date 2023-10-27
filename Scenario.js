@@ -1,8 +1,9 @@
 class Scenario{
-	constructor(name, description, choices) {
+	constructor(name, description, choices, image=null) {
 		this.name = name;
     this.description = description;
     this.choices = choices;
+    this.image = image;
   }
 }
 

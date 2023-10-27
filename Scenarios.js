@@ -5,7 +5,7 @@ var scenarios = {
 					new Outcome("Pure Protein", "Pretty dirty tho...", {health: -10, holiness: -10, happiness: 5, strength : 1})),
 			new Choice("Ignore it", 
 					new Outcome("", "Fair enough..."))
-		]),
+		], "https://media.tenor.com/TvqvoHiia9wAAAAC/chewing-yum.gif"),
 	],
 	"stage_2": [
 		new Scenario("Diet", "What do you think your parents have been feeding you up to this point?", [
@@ -184,14 +184,14 @@ var scenarios = {
 		]),
 	],
 	"stage_18": [
-		new Scenario("Birthday Party!", "You are having fun preparing a cake to celebrate the birthdate of Morgan's girlfriend until you sense something is off about the candles. How many candles were on the cake?", [
+		new Scenario("Birthday Party!", "You are having fun preparing a cake to celebrate the birthday of your friend's girlfriend until you sense something is off about the candles. How many candles were on the cake?", [
 			new Choice("3", 
 					new Outcome("Oh God...", "Should I call the police?", {happiness: -40, holiness: -30})),
 			new Choice("80", 
 					new Outcome("Did I count that right?", "I recall my grandmother mentioning her new boyfriend...", {happiness: -40})),
 			new Choice("25", 
 					new Outcome("Hee Hee", "Lucky Fellow!", {happiness: 20})),
-		]),
+		], "https://static.wikia.nocookie.net/muppet/images/b/b0/CE9.JPG/revision/latest?cb=20191010050435"),
 	]
 }
 
@@ -315,11 +315,13 @@ var college_scenarios = [
 			new Choice("Figure it out on your own", 
 				new Outcome("try Hard", "Your understanding of the concept was messed up and you screw up the following test.", {happiness: -60, education: -100})),
 		]),
-		new Scenario("Who dropped the soap?", "You are in a public shower washing yourself for the next class. You then accidentally dropped your brand new soap infront of a few other people. Remember, you are only a college student, this bar of soap means alot to you financially...", [
-			new Choice("Pick up the soap", 
-				new Outcome("Risky Maneuver", "You slowly crouch down near the soap, trying your best to avoid exposing your vulnerable parts to the others around you. You stand straight up immediately the moment you get a grip of the soap bar. *Soap successfully recovered*", {happiness: 50})),
-			new Choice("Watch as the soap slip away from you on the floor.", 
-				new Outcome("I will never recover financially from this...", "At least no one will see your tears in the shower at this moment...", {happiness: -50})),
+		new Scenario("The essay", "Your 5000 words essay is due tomorrow. What would you do?", [
+			new Choice("Type 10 words and take a well earned rest.", 
+				new Outcome("Hard Worker", "You don't expect to receive high grades. Just taking what you deserved.", {happiness: 30, education: -50})),
+			new Choice("Cramp through the night", 
+				new Outcome("Flowing words", "The well-written essay gradually formed as you typed it with your ha;f-conscious body. Good job!", {happiness: 50, education: 50})),
+			new Choice("Relax because it's already done.", 
+				new Outcome("Good work", "You respect deadlines and your essay shows no sign of hasting. Great Job!", {happiness: 50, education: 50})),
 		]),
 		new Scenario("Who dropped the soap?", "You are in a public shower washing yourself for the next class. You then accidentally dropped your brand new soap infront of a few other people. Remember, you are only a college student, this bar of soap means alot to you financially...", [
 			new Choice("Pick up the soap", 
