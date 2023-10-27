@@ -23,7 +23,7 @@ var available_events = {
 									new Choice("SCREW Them KIDS!",
 											new Outcome("Natural Selection", "Why be so aggressive, you must be very sensitive about your wallet, huh? Smart choice though.", {happiness: -200, holiness: -100}))			
 							]),
-	"rating" : new Event("A Word from The Developer", "Respectfully, the developer is begging you to sacrifice a minute of your time to leave a 5-star review, not for the game, but a 5-star Google review for his workplace. While I was working on the game, some moron left a 1-star review for the place, AT 1 AM. You can find the place on Google Map as Spunky's Convenience Store, please leave a 5-star review and thank you very much for your consideration. I hate this place...",[
+	"rating" : new Event("A Word from The Developer", "Please give Spunky's Convenience Store a 5-star rating on Google Maps. Some guy gave my a 1-star while I was making this.",[
 									new Choice("Yeah Sure! I'll leave a review for Spunky's Convenience Store!",
 											new Outcome("THANK YOU", "THANK YOU! THANK YOU! Here, have some cash for the trouble!", {holiness: 100, wealth: 2000})),
 									new Choice("Damn, I kinda... Don't care.",
@@ -33,16 +33,12 @@ var available_events = {
 
 
 let normal_jobs = [
-	new Outcome("Mc Donalds", "You are now working at Mc Donalds. Hurray, I guess...", 
+	new Outcome("Mc Donalds", "You are now working at Mc Donalds.", 
 			{career: new Career("Mc Donalds Employee", 23000, -30)}),
 	new Outcome("Plumber", "'I hope it was like in the movies...'", 
 			{career: new Career("Pumbler", 37000, 10)}),
 	new Outcome("Construction Workers", "Please, please don't end up on LiveLeaks", 
 			{career: new Career("Mc Donalds Employee", 40000, -5)}),
-	new Outcome("Janitor", "You bring order to society.", 
-			{career: new Career("Janitor", 33000, 5)}),
-	new Outcome("Pizza Delivery", "'You have 25 minutes, GO!'", 
-			{career: new Career("Pizza Delivery", 33000, 10)}),
 	new Outcome("Warehouse Worker", "Go easy on your lower back.", 
 			{career: new Career("Warehouse Worker", 30000, 5)}),
 	new Outcome("Security Guard", "Those night shifts are sooo scary...", 
@@ -63,7 +59,7 @@ let college_jobs = [
 ]
 
 let scholar_jobs = [
-	new Outcome("Doctor", "You are literally the top of the food chain, I envy you guys.", 
+	new Outcome("Doctor", "You studied hard and deserve this position.", 
 			{career: new Career("Doctor", 200000, 200)}),
 	new Outcome("Mechanical Engineer", "You are nerds fixing stuff, good pay tho.", 
 			{career: new Career("Mechanical Engineer", 140000, 100)}),

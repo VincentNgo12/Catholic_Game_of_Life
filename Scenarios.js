@@ -66,9 +66,9 @@ var scenarios = {
 	"stage_6": [
 		new Scenario("*Honey, we need more milk.*", "In an evening, your Dad was leaving to get some milk, and smokes... ", [
 			new RandomChoice("Daddy, bring me some toys too please.",[ 
-				new Outcome("Don't you love me?", "It's been 3 months and your old man hasn't come home yet", {happiness: -150}),
+				new Outcome("Don't you love me?", "It's been 3 months and your old man hasn't come home yet", {happiness: -750}),
 				new Outcome("Bro forgot them toys...", "Your dad returned with some milk but no toys...", {happiness: -15}),
-				new Outcome("I LOVE YOU OLD MAN", "He returned with milk and lots of toys!!! He loves you.", {happiness: 80}),
+				new Outcome("I LOVE YOU OLD MAN", "He returned with milk and lots of toys!!! He loves you.", {happiness: 200}),
 				]),
 		]),
 	],
@@ -281,11 +281,17 @@ var mid_life_scenarios = [
 			new Choice("Return what's nature's", 
 				new Outcome("Caught Yellow-handed", "An officer caught you doing this dirty act and charge you accordingly.", {holiness: -100, crime: 80, happiness: -30, wealth: -5000})),
 		]),
-		new Scenario("Chicken Man", "You met this old man while you were starving. He kept on bragging and tell you something about his enormous chicken. He the invited you to his place so he can 'fulfill you'. You are really hungry and this offer seems perfectly suit your needs. What was your answer? ", [
+		new Scenario("Chicken Man", "You met this old man on the street and he kept on bragging and tell you something about his enormous chicken. He then invited you to his place so he can 'fulfill you'. You are really hungry and this offer seems perfectly suit your needs. What was your answer? ", [
 			new Choice("Sure thing, let's go old man", 
 				new Outcome("Farm Life", "Turns out, the man is a farmer and his chickens are indeed certainly huge. He fed you with a big chicken dinner meal and even gave you a dozen of farm eggs. You are not fulfilled", {happiness: 50, holiness: 50})),
 			new Choice("No, I'm good. THanks", 
 				new Outcome("Emptiness", "You denied the man's offer and ended with no food that night.", {happiness: -80})),
+		]),
+		new Scenario("It's Steve again", "It's snowing really heavy today, you and your neighbor Steve is shoving the snow to the street. You soon notice that this dude has the tendency to shove his snow over to your property instead of the street. How do you react?", [
+			new Choice("calmy explain to him that's wrong", 
+				new Outcome("Lesson learnt", "He soon realize his mistake and appologize. Steve is not so bad.", {happiness: 50, holiness: 50, education: 100})),
+			new Choice("Feed rat poison to his children", 
+				new Outcome("You get what you deserve", "The candies you gave them was heavily dosed with rat poison and you didn't forget his mother. Especially his Mother....", {killstreak: 4, happiness: 20, holiness: -400, crime: 500})),
 		]),
 	]
 
@@ -343,13 +349,13 @@ var criminal_scenarios = [
 			new Choice("Kidnap Him", 
 				new Outcome("Wholesome", "You kidnapped the kid, hoping to receive a compensation from his parents", {crime: 100, holiness: -100})),
 		]),
-		new Scenario("Good looking toys", "What's your favorite toy at age 4?", [
-			new Choice("Building Blocks", 
-				new Outcome("Future Engineer", "You love playing with building blocks and building amazing structures.", {happiness: 3, education: 5})),
-			new Choice("Dolls", 
-				new Outcome("Doll Collector", "You adore playing with dolls and creating stories with them.", {happiness: 10})),
-			new Choice("Dad's Glock 17", 
-				new Outcome("Whoah Woah..", "Careful over there buddy!", {happiness: 5, holiness: -10, crime: 4})),
+		new Scenario("Pulled Over", "The police pulled you over in the middle of the night to check your ID. How do you react?", [
+			new Choice("Reach in your pocket with godspeed", 
+				new Outcome("Not fast enough", "You were quick but the officer was quicker. He didn't miss any of his 5 shots while you are only halfway to your pocket", {health: -1000, education: -1000})),
+			new Choice("Speed off the road", 
+				new Outcome("Too quick Too fast", "You sped off like a professional racist. What is the police going to do? Run?", {happiness: 70, holiness: -80, crime: 200})),
+			new Choice("Give him your ID", 
+				new Outcome("Have a good evening", "The officer scanned through your ID carefully, he sent you off without any doubt. Too bad he didn't notice the corpes in the trunk.", {happiness: 50, holiness: -200, crime: 200})),
 		]),
 	]
 
@@ -361,22 +367,6 @@ var catholic_scenarios = [
 			new Choice("Deny it because you are busy", 
 				new Outcome("Regret", "You deeply regret that decission, you are not even that busy.", {happiness: -50, holiness: -10})),
 		]),
-		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
-			new Choice("Excited", 
-				new Outcome("Eager Learner", "You're excited to go to school and make new friends.", {happiness: 10, education: 10})),
-			new Choice("Nervous", 
-				new Outcome("Little Worrier", "You're a bit nervous, but it's normal for the first day.", {happiness: -5})),
-			new Choice("Pumped UP", 
-				new Outcome("Bring on em kids", "Looking for a worthy opponent, huh?", {happiness: 5, strength: 10})),
-		]),
-		new Scenario("Favorite Toy", "What's your favorite toy at age 4?", [
-			new Choice("Building Blocks", 
-				new Outcome("Future Engineer", "You love playing with building blocks and building amazing structures.", {happiness: 3, education: 5})),
-			new Choice("Dolls", 
-				new Outcome("Doll Collector", "You adore playing with dolls and creating stories with them.", {happiness: 10})),
-			new Choice("Dad's Glock 17", 
-				new Outcome("Whoah Woah..", "Careful over there buddy!", {happiness: 5, holiness: -10, crime: 4})),
-		]),
 	]
 
 
@@ -387,21 +377,27 @@ var late_life_scenarios = [
 			new Choice("Erase the browsing history", 
 				new Outcome("Burn them down", "You can leave anything on this Earth but the browsing history", {happiness: 30})),
 		]),
-		new Scenario("First Day of School", "It's your first day of preschool. How do you feel?", [
-			new Choice("Excited", 
-				new Outcome("Eager Learner", "You're excited to go to school and make new friends.", {happiness: 10, education: 10})),
-			new Choice("Nervous", 
-				new Outcome("Little Worrier", "You're a bit nervous, but it's normal for the first day.", {happiness: -5})),
-			new Choice("Pumped UP", 
-				new Outcome("Bring on em kids", "Looking for a worthy opponent, huh?", {happiness: 5, strength: 10})),
+		new Scenario("Shower time!", "Taking showers at such age requires dedication. Where did you leave the shampoo?", [
+			new Choice("On top of the shelf", 
+				new Outcome("Reacher", "You slipped uncontrollably and hit your head against the floor. That's alot of damage!", {health: -100})),
+			new Choice("Forgot", 
+				new Outcome("It's Close...", "You soon realize this is the early signs of Dementia and you can't do anything about it...", {happiness: -200, health: -30, holiness: -50})),
+			new Choice("I don't use shampoo", 
+				new Outcome("Water is good enough", "Using shampoo at this age will only increase the risk of slippery surfaces", {happiness: 60})),
 		]),
-		new Scenario("Favorite Toy", "What's your favorite toy at age 4?", [
-			new Choice("Building Blocks", 
-				new Outcome("Future Engineer", "You love playing with building blocks and building amazing structures.", {happiness: 3, education: 5})),
-			new Choice("Dolls", 
-				new Outcome("Doll Collector", "You adore playing with dolls and creating stories with them.", {happiness: 10})),
-			new Choice("Dad's Glock 17", 
-				new Outcome("Whoah Woah..", "Careful over there buddy!", {happiness: 5, holiness: -10, crime: 4})),
+		new Scenario("Pick up speed", "You are walking down an alley and a kid start complaining about how slow you are. How do you react?", [
+			new Choice("Move aside", 
+				new Outcome("Heart Broken", "The child run past you, leaving you with a deep scar in your feelings. Man, I'm getting old...", {happiness: -100})),
+			new Choice("Do some teaching", 
+				new Outcome("Muscle memory", "Swiftly without any flaws, you pulled out a metal baton and smack the child's head. Hope he is more open-minded now.", {happiness: 80, holiness: -100, crime: -100})),
+		]),
+		new Scenario("Swimming Pool", "You are an old person in a public swimming pool, how do you act your age?", [
+			new Choice("Go butt ass naked in the changing room", 
+				new Outcome("Senior Galleries", "You got the approval of the seniors and the admiration of the juniors.", {happiness: 100, holiness: 50})),
+			new Choice("Camp in the sauna", 
+				new Outcome("Focus on the now", "You sit motionlessly hours and hours in the sauna room. Not even the staffs can move you. You don't fear death now", {happiness: 100, holiness: 50, health: 20})),
+			new Choice("Act like any body else.", 
+				new Outcome("I'm still fit in", "You are old doesn't mean you have to behave differently. You enjoyed this activity as much as when you were young.", {happiness: 100, holiness: 50})),
 		]),
 	]
 
@@ -412,6 +408,12 @@ var career_scenarios = [
 				new Outcome("Literally", "You expected him to show you something seductive, but instead he jumped out of the building's window which is not safe for work. Disappointed...", {happiness: -20})),
 			new Choice("Don't make me call HR", 
 				new Outcome("Unhealthy colleague", "Your co-worker was very sad about your behaviour, he expected something much more friendly from you.", {happiness: -30})),
+		]),
+		new Scenario("Emotional Work Day", "One of your co-worker just got suddenly fired, everyone in the room doesn't seem to care. Would you do anything?", [
+			new Choice("I am too busy for this", 
+				new Outcome("Workaholic", "This guy have nothing to do with my business, quite literally.", {happiness: 10, wealth: 500})),
+			new Choice("Give him a hug", 
+				new Outcome("What you doing dawg", "The dude sniffs you as soon as you hug him. You soon figure out the reason he was fired.", {happiness: -30, holiness: -20})),
 		]),
 	]
 
