@@ -215,6 +215,7 @@ class Game{
 			.then(() => {
 				this.set_game_logic();
 				this.show_player_stats();
+				this.update_player_stats();
 				this.play_current_stage();
 			});
 		}else{
