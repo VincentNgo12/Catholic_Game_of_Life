@@ -139,12 +139,14 @@ var scenarios = {
 		]),
 	],
 	"stage_13": [
-		new Scenario("Pepsi alternative?", "In an evening, your uncle offer you a cool looking can of soda. 'Heineken'? You have never heard of it before. Wann try?", [
-			new Choice("Looks cool, must be delicious.", 
-				new Outcome("Disgusting", "The drink is bitter and disgusting, you thinks uncle is an idiot for drinking this.", {health: -1, happiness: -5})),
-			new Choice("My mom said no sodas at night.", 
-				new Outcome("", "'No drinks for you then, buddy.'", {happiness: -5, holiness:10})),
-		]),
+		new Scenario("You sir, are abusive...", "Your best friend invited you to his home for some video games but as soon as he enter the house, his old man grabed him and initiate an intense beating session. What should you say?", [
+			new Choice("'Is this the Mash you were talking about?'", 
+				new Outcome("Chaos but silent", "You didn't receive any answer, only incoherent agonizing scream from your best friend.", {happiness: -30})),
+			new Choice("'Can I go now?'", 
+				new Outcome("...", "... You left the house.", {happiness: -20, holiness:10})),
+			new Choice("'Go for the head, sir'", 
+				new Outcome("Accepted", "You were amazed of how the man actually executed your request.", {happiness: 20, holiness: -10})),
+		], "https://i.pinimg.com/236x/be/5e/b5/be5eb5a8de8f7eed6449e8ddec4bef96.jpg"),
 	],
 	"stage_14": [
 		new Scenario("First crush", "You soon realize that you were spending alot of time thinking about a paticular person in your classroom. Who was that person?", [
@@ -184,9 +186,9 @@ var scenarios = {
 		]),
 	],
 	"stage_18": [
-		new Scenario("Birthday Party!", "You are having fun preparing a cake to celebrate the birthday of your friend's girlfriend until you sense something is off about the candles. How many candles were on the cake?", [
-			new Choice("3", 
-					new Outcome("Oh God...", "Should I call the police?", {happiness: -40, holiness: -30})),
+		new Scenario("Birthday Party!", "You are having fun preparing a cake to celebrate the birthday of your Steve's girlfriend until you sense something is off about the candles. How many candles were on the cake?", [
+			new Choice("47", 
+					new Outcome("'Calm Down'", "'This has nothing to do with your mother, I promise'", {happiness: -40, holiness: -30})),
 			new Choice("80", 
 					new Outcome("Did I count that right?", "I recall my grandmother mentioning her new boyfriend...", {happiness: -40})),
 			new Choice("25", 
@@ -197,13 +199,13 @@ var scenarios = {
 
 
 var mid_life_scenarios = [
-		new Scenario("Social Interaction", "A homeless man offer you 20$ to kiss him on the cheeks, what would you do?", [
+		new Scenario("Social Interaction", "A homeless man offer you 20$ to kiss him, what would you do?", [
 			new Choice("20$ is 20$", 
-				new Outcome("Night Night", "You kissed the man goodnight", {happiness: 5, wealth: 20})),
+				new Outcome("Night Night", "You kissed the man goodnight, wholesome!!", {happiness: 20, holiness: 50, wealth: 20})),
 			new Choice("Ignore him", 
 				new Outcome("Normal Day in Downtown", "It does not bother you.", {})),
 			new Choice("Beat Him Up", 
-				new Outcome("Rewarding", "You beat him up and took his 20$", {happiness: 5, strength: 5, wealth: 20, holiness: -10})),
+				new Outcome("Rewarding", "You beat him up and took his 20$", {happiness: 30, strength: 5, wealth: 20, holiness: -80})),
 		]),
 		new Scenario("Stressful Day", "You had a paticular bad day today, what would you do to ease the stress?", [
 			new Choice("Eat Junk Foods", 
@@ -293,6 +295,38 @@ var mid_life_scenarios = [
 			new Choice("Feed rat poison to his children", 
 				new Outcome("You get what you deserve", "The candies you gave them was heavily dosed with rat poison and you didn't forget his mother. Especially his Mother....", {killstreak: 4, happiness: 20, holiness: -400, crime: 500})),
 		]),
+		new Scenario("Mc Pretty", "While ordering at McDonald, you find that the cashier is very cute. What should you say in this situation?", [
+			new Choice("'Keep the change babe'", 
+				new Outcome("End of the month...", "Sir, your card has been McDeclined...", {happiness: -50, holiness: -20})),
+			new Choice("'Thank you'", 
+				new Outcome("Standard Citizen", "You didn't harrass anyone today, great job! It takes dedication!", {happiness: 50, holiness: 40})),
+			new Choice("'Bomb has been planted'", 
+				new Outcome("McPanic", "The whole place broke down in panic, the scene was chaos. The police arrived and you were charged with McHarrssment.", {happiness: -50, holiness: -70, crime: 100})),
+		]),
+		new Scenario("Feelings...", "Your mother has been spanking your butt because you kicked the neighbor's dog today. Was it hurt?", [
+			new Choice("Nope", 
+				new Outcome("Oh Mother...", "You soon realized that your mother is quite frail and weak now. You are getting old, right mother?", {happiness: -50, holiness: -30})),
+			new Choice("Godmakeitstop!", 
+				new Outcome("Hell on earth", "Your mother spanked you with great intensity, inflicting critical damage on her every hit. You were on the verge of falling unconcious due to pain, but mom won't let that happen...", {happiness: -100, holiness: -80, health: -5})),
+			new Choice("Yes", 
+				new Outcome("I deserved it", "You respected mom beating as a valuable lesson. You certainly won't do that again.", {happiness: 50, holiness: 50})),
+		]),
+		new Scenario("What's this?", "A group of men blocked you in the middle of the night on a street. They said they are going to jump you and asked if you have any last speech. What did you answer?", [
+			new Choice("'I accept my fate'", 
+				new Outcome("No wa...", "They started jumping you without any explanation, you didn't like it that much.", {happiness: -80, holiness: -30, health: -10})),
+			new Choice("'I know your mothers'", 
+				new Outcome("Mercy", "They started freaking out and begged you not to tell their mother about this. One of them even peed his pant.", {happiness: 80, holiness: 50})),
+			new Choice("'Double it and give to the next person'", 
+				new Outcome("'Understood'", "You observed as the men moved to the homeless nearby and start to beat the living hell out of him. What a save!", {happiness: 80, holiness: -30})),
+		]),
+		new Scenario("Little happy accident", "You are alone in an aisle in Home Depot and you decided to climb the shelf to find your stuff. Because of the weight distrubution, the large shelf fall over, knocking down heavy objects in various directions. This has led to several injuries, knocking a few children unconscious and killing one of Steve's child. What did you say afterward?", [
+			new Choice("'Sorry'", 
+				new Outcome("Classic Canadian", "Everyone laugh it off because Canadians are kind. Except Steve.", {happiness: 80, holiness: 40})),
+			new Choice("'Watch Out'", 
+				new Outcome("Very Helpful", "But at least they knew you tried to warn them, you are just a bit slow.", {happiness: 50, holiness: 20})),
+			new Choice("'Cha Cha real smooth'", 
+				new Outcome("Do them Cha-Cha slides", "Steve didn't think it was very smooth", {happiness: -20, holiness: -50})),
+		]),
 	]
 
 
@@ -328,6 +362,14 @@ var college_scenarios = [
 				new Outcome("Risky Maneuver", "You slowly crouch down near the soap, trying your best to avoid exposing your vulnerable parts to the others around you. You stand straight up immediately the moment you get a grip of the soap bar. *Soap successfully recovered*", {happiness: 50})),
 			new Choice("Watch as the soap slip away from you on the floor.", 
 				new Outcome("I will never recover financially from this...", "At least no one will see your tears in the shower at this moment...", {happiness: -50})),
+		]),
+		new Scenario("The tale of the iron Log", "Your crush invited you to her parent house to do homeworks and have dinner together. You then excused her father yo use the toilet and proceed to do your business. But the plumber has played you, as soon as you flush, the sea level kept on rising along with the newborn log you just made. Standing before your Archimedes, you see no sign of improvement and your log is on the verge of traversing to the floor. Desperate and panicking, you hear your crush's slamming the toilet door, threatening that he will call the FBI if you don't open up. Broke down crying, it has been 95 minutes, what do you do?", [
+			new Choice("Jump out the window", 
+				new Outcome("Until we see again", "You jumped out the window, broke an arm and ran away. At least you still have a chance with your crush by doing this, right?", {happiness: -30, health: -3})),
+			new Choice("Pick it up and throw", 
+				new Outcome("*Mash!*", "The neighbor didn't appreciate this gift", {happiness: -50, holiness: -50})),
+			new Choice("Be truthful and explain everything to the family", 
+				new Outcome("Good Ending", "Sobbing as you explain the thing you did to their toilet, the family in turn felt empathize for your feelings. They started huggin you and reasure you that everything is going to be okay. You have never felt more welcomed and loved by a stranger before. You might actually want to spend the rest of time with your crush...", {happiness: 120, holiness: 70})),
 		]),
 	]
 
