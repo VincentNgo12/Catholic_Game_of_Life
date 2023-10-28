@@ -166,7 +166,7 @@ var scenarios = {
 	],
 	"stage_16": [
 		new Scenario("What's the matter?", "You saw a man running from a room, panicking and terrified. You grabeb him and asked calmly - 'What did you see?'. What did he answer?", [
-			new Choice("Morgan's Browsing History", 
+			new Choice("Steve's Browsing History", 
 					new Outcome("Poor guy...", "Those materials would traumatize him for life. I wouldn't want to be him...", {happiness: -4, holiness: -3})),
 			new Choice("A spider", 
 					new Outcome("Understandable", "Have a good day.", {happiness: 4})),

@@ -29,6 +29,8 @@ class Game{
 			this.show_scenario();
 		}else{
 			this.show_ending_modal();
+			this.current_outcome = new Outcome("Thanks for playing", "You died, ending your hopefully-Catholic life. Let's hope you didn't die a silly death.", {});
+			this.show_outcome();
 		}
 	}
 	
