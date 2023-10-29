@@ -272,6 +272,8 @@ class Game{
 			this.player.traits.happiness += satisfaction;
 		}
 
+		this.player.traits.wealth += this.player.traits.annual_cost;
+
 		return;
 	}
 	

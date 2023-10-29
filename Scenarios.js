@@ -146,7 +146,7 @@ var scenarios = {
 				new Outcome("...", "... You left the house.", {happiness: -20, holiness:10})),
 			new Choice("'Go for the head, sir'", 
 				new Outcome("Accepted", "You were amazed of how the man actually executed your request.", {happiness: 20, holiness: -10})),
-		], "https://i.pinimg.com/236x/be/5e/b5/be5eb5a8de8f7eed6449e8ddec4bef96.jpg"),
+		]),
 	],
 	"stage_14": [
 		new Scenario("First crush", "You soon realize that you were spending alot of time thinking about a paticular person in your classroom. Who was that person?", [
@@ -193,7 +193,7 @@ var scenarios = {
 					new Outcome("Did I count that right?", "I recall my grandmother mentioning her new boyfriend...", {happiness: -40})),
 			new Choice("25", 
 					new Outcome("Hee Hee", "Lucky Fellow!", {happiness: 20})),
-		], "https://static.wikia.nocookie.net/muppet/images/b/b0/CE9.JPG/revision/latest?cb=20191010050435"),
+		]),
 	]
 }
 
@@ -321,11 +321,25 @@ var mid_life_scenarios = [
 		]),
 		new Scenario("Little happy accident", "You are alone in an aisle in Home Depot and you decided to climb the shelf to find your stuff. Because of the weight distrubution, the large shelf fall over, knocking down heavy objects in various directions. This has led to several injuries, knocking a few children unconscious and killing one of Steve's child. What did you say afterward?", [
 			new Choice("'Sorry'", 
-				new Outcome("Classic Canadian", "Everyone laugh it off because Canadians are kind. Except Steve.", {happiness: 80, holiness: 40})),
+				new Outcome("Classic Canadian", "Everyone laugh it off because Canadians are kind. Except Steve.", {killstreak: 1, happiness: 80, holiness: 40})),
 			new Choice("'Watch Out'", 
-				new Outcome("Very Helpful", "But at least they knew you tried to warn them, you are just a bit slow.", {happiness: 50, holiness: 20})),
+				new Outcome("Very Helpful", "But at least they knew you tried to warn them, you are just a bit slow.", {killstreak: 1, happiness: 50, holiness: 20})),
 			new Choice("'Cha Cha real smooth'", 
-				new Outcome("Do them Cha-Cha slides", "Steve didn't think it was very smooth", {happiness: -20, holiness: -50})),
+				new Outcome("Do them Cha-Cha slides", "Steve didn't think it was very smooth", {killstreak: 1, happiness: -20, holiness: -50})),
+		]),
+		new Scenario("Water Fight!", "Steve's children just invited you to join them in a water fight! What would you do?", [
+			new Choice("Decline it", 
+				new Outcome("'Sorry kids'", "You are an adult and you are busy. You are sure they will understand.", {happiness: -20, holiness: -10})),
+			new Choice("Happily accept", 
+				new Outcome("Let's Fight!", "'Hey... Where's your water gun?'", {happiness: 80, holiness: 20})),
+			new Choice("Start boiling the water", 
+				new Outcome("Go on, have fun!", "None of them could have predicted your secrect technique. Inflicting them with 3rd degree burn, you easily won the battle, but at what cost? It was a dark day for Steve's family.", {killstreak: 2, happiness: 50, holiness: -100, crime: 200})),
+		]),
+		new Scenario("Youtuber", "A random youtuber invited you to join them in a little prank. You won't tell you what it is but they surely need your help. Would you accept?", [
+			new Choice("Sure!", 
+				new Outcome("I'm on youtube mom!", "The youtuber recorded you pouring gasoline all over somebody's home. What a good guy, giving away fuel at this difficult time. This must be a charity youtube video!", {happiness: 50, holiness: -70, crime: 100})),
+			new Choice("No thanks", 
+				new Outcome("Very well.", "You missed a great opportunity to be 'famous'.", {happiness: 20, holiness: 20})),
 		]),
 	]
 
@@ -429,7 +443,7 @@ var late_life_scenarios = [
 			new Choice("Move aside", 
 				new Outcome("Heart Broken", "The child run past you, leaving you with a deep scar in your feelings. Man, I'm getting old...", {happiness: -100})),
 			new Choice("Do some teaching", 
-				new Outcome("Muscle memory", "Swiftly without any flaws, you pulled out a metal baton and smack the child's head. Hope he is more open-minded now.", {happiness: 80, holiness: -100, crime: -100})),
+				new Outcome("Muscle memory", "Swiftly without any flaws, you pulled out a metal baton and smack the child's head. Hope he is more open-minded now.", {happiness: 80, holiness: -100, crime: 100})),
 		]),
 		new Scenario("Swimming Pool", "You are an old person in a public swimming pool, how do you act your age?", [
 			new Choice("Go butt ass naked in the changing room", 
