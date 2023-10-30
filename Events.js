@@ -66,7 +66,7 @@ let scholar_jobs = [
 	new Outcome("Software Engineer", "You are overpaid too much for just sitting infront of a screen. What do you guys even do?", 
 			{career: new Career("Software Engineer", 130000, 150)}),
 	new Outcome("Lawyer", "Rumours said lawyers don't go to Heaven, but you are too busy getting paid to even bother.", 
-			{career: new Career("Software Engineer", 200000, 180)}),		
+			{career: new Career("Lawyer", 200000, 180)}),		
 ]
 
 function apply_career(person, stage){

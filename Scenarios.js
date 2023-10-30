@@ -166,7 +166,7 @@ var scenarios = {
 	],
 	"stage_16": [
 		new Scenario("What's the matter?", "You saw a man running from a room, panicking and terrified. You grabeb him and asked calmly - 'What did you see?'. What did he answer?", [
-			new Choice("Steve's Browsing History", 
+			new Choice("Morgan's Browsing History", 
 					new Outcome("Poor guy...", "Those materials would traumatize him for life. I wouldn't want to be him...", {happiness: -4, holiness: -3})),
 			new Choice("A spider", 
 					new Outcome("Understandable", "Have a good day.", {happiness: 4})),
@@ -186,7 +186,7 @@ var scenarios = {
 		]),
 	],
 	"stage_18": [
-		new Scenario("Birthday Party!", "You are having fun preparing a cake to celebrate the birthday of your Steve's girlfriend until you sense something is off about the candles. How many candles were on the cake?", [
+		new Scenario("Birthday Party!", "You are having fun preparing a cake to celebrate the birthday of Morgan's girlfriend until you sense something is off about the candles. How many candles were on the cake?", [
 			new Choice("47", 
 					new Outcome("'Calm Down'", "'This has nothing to do with your mother, I promise'", {happiness: -40, holiness: -30})),
 			new Choice("80", 
